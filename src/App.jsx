@@ -62,7 +62,7 @@ const content = {
     ],
     nav_contact: "Contact",
     hero_subtitle: "Mid-Level Data Analyst & Front-End Developer",
-    hero_description: "Over 3 years of experience transforming complex data into actionable insights. I build modern web interfaces with React, create interactive systems with Streamlit, and develop data studies using Python, Pandas, and Plotly. Specialized in bioinformatics and passionate about using technology to solve complex challenges.",
+    hero_description: "Over 3 years of experience transforming complex data into actionable insights. I build modern web interfaces with React, create interactive systems with Streamlit, and develop data studies using Python, Pandas, and Plotly, with experience using data for bioinformatics and passionate about using technology to solve complex challenges.",
     about_title: "About Me",
     about_description: "I am a developer passionate about technology and innovation. My journey has taken me through challenging projects where I was able to apply my knowledge to create solutions with purpose. I am always seeking new knowledge to face complex challenges with creative and efficient solutions.",
     languages_title: "Languages",
@@ -80,8 +80,8 @@ const content = {
     ],
     experience_title: "Professional Experience",
     experiences: [
-      { role: "Mid-Level Data Analyst", company: "Hospital Israelita Albert Einstein", period: "Feb 2025 - Present", achievements: ["Engineered and automated ETL pipelines, reducing data processing time by 40%.", "Designed and deployed over 10 interactive dashboards in Power BI, improving clinical teams' decision-making speed by 25%.", "Implemented machine learning models to predict patient trends with 85% accuracy.", "Managed a multi-terabyte Data Lake, ensuring data integrity and compliance."] },
-      { role: "Data Analyst", company: "Hospital Israelita Albert Einstein", period: "Nov 2023 - Feb 2025", achievements: ["Architected serverless integration solutions for bioinformatics systems using Python and AWS.", "Built robust data integrators that eliminated over 95% of manual data entry errors.", "Optimized code for critical bioinformatics tools, enhancing performance and reliability."] },
+      { role: "Mid-Level Data Analyst", company: "Hospital Israelita Albert Einstein", period: "Feb 2025 - Present", achievements: ["Engineered and automated ETL pipelines, reducing data processing time by 40%.", "Designed and deployed over 10 interactive dashboards in Power BI.", "Developed automations with Python to improve processing and reduce manual rework.", "Managed a multi-terabyte Data Lake, ensuring data integrity and compliance."] },
+      { role: "Data Analyst", company: "Hospital Israelita Albert Einstein", period: "Nov 2023 - Feb 2025", achievements: ["Architected serverless integration solutions for bioinformatics systems using Python and AWS.", "Built robust data integrators that eliminated over 95% of manual data entry errors.", "Developed Python automations to optimize data processing workflows."] },
       { role: "Systems Development Intern", company: "CI&T", period: "Feb 2022 - Mar 2023", achievements: ["Developed responsive UI components for the 'BEES SOCIAL MEDIA' platform using React.js.", "Collaborated on a microservices-based architecture using Java and MongoDB.", "Actively participated in daily meetings and planning sessions with international teams, using English as the primary language of communication."] },
       { role: "Systems Development Intern", company: "Robert Bosch Ltda", period: "Nov 2021 - Feb 2022", achievements: ["Implemented and maintained front-end features for a B2B e-commerce platform using AngularJS and React.", "Collaborated with multicultural teams on web projects, conducting all technical communication in English."] },
       { role: "Project Manager (Entrepreneurship Program)", company: "Dell Technologies", period: "Mar 2019 - Dec 2019", achievements: ["Led the development of a startup from concept to MVP as part of a year-long high school entrepreneurship program.", "Pitched the final product to real investors and Dell managers, receiving positive feedback on market viability."] }
@@ -111,7 +111,7 @@ const content = {
     ],
     nav_contact: "Entre em Contato",
     hero_subtitle: "Analista de Dados Pleno & Desenvolvedor Front-End",
-    hero_description: "Mais de 3 anos de experiência transformando dados complexos em insights acionáveis. Construo interfaces web modernas com React, crio sistemas interativos com Streamlit e desenvolvo estudos de dados com Python, Pandas e Plotly. Especializado em bioinformática e apaixonado por usar tecnologia para resolver desafios complexos.",
+    hero_description: "Mais de 3 anos de experiência transformando dados complexos em insights acionáveis. Construo interfaces web modernas com React, crio sistemas interativos com Streamlit e desenvolvo estudos de dados com Python, Pandas e Plotly, com experiência no uso de dados para bioinformática e apaixonado por usar tecnologia para resolver desafios complexos.",
     about_title: "Sobre Mim",
     about_description: "Sou um desenvolvedor apaixonado por tecnologia e inovação. Minha jornada me levou por projetos desafiadores onde pude aplicar meu conhecimento para criar soluções com propósito. Estou sempre buscando novos conhecimentos para enfrentar desafios complexos com soluções criativas e eficientes.",
     languages_title: "Idiomas",
@@ -129,8 +129,8 @@ const content = {
     ],
     experience_title: "Experiência Profissional",
     experiences: [
-      { role: "Analista de Dados Pleno", company: "Hospital Israelita Albert Einstein", period: "Fev 2025 - Presente", achievements: ["Desenvolvi e automatizei pipelines de ETL, reduzindo o tempo de processamento de dados em 40%.", "Criei mais de 10 dashboards interativos em Power BI, melhorando a velocidade de decisão das equipes clínicas em 25%.", "Implementei modelos de machine learning para prever tendências de pacientes com 85% de acurácia.", "Gerenciei um Data Lake de múltiplos terabytes, garantindo integridade e conformidade dos dados."] },
-      { role: "Analista de Dados", company: "Hospital Israelita Albert Einstein", period: "Nov 2023 - Fev 2025", achievements: ["Arquitetei soluções de integração serverless para sistemas de bioinformática com Python e AWS.", "Construí integradores de dados robustos que eliminaram mais de 95% dos erros de entrada manual.", "Otimizei códigos para ferramentas críticas de bioinformática, melhorando performance e confiabilidade."] },
+      { role: "Analista de Dados Pleno", company: "Hospital Israelita Albert Einstein", period: "Fev 2025 - Presente", achievements: ["Desenvolvi e automatizei pipelines de ETL, reduzindo o tempo de processamento de dados em 40%.", "Criei mais de 10 dashboards interativos em Power BI.", "Desenvolvi automações com Python para otimizar o processamento e diminuir o retrabalho.", "Gerenciei um Data Lake de múltiplos terabytes, garantindo integridade e conformidade dos dados."] },
+      { role: "Analista de Dados", company: "Hospital Israelita Albert Einstein", period: "Nov 2023 - Fev 2025", achievements: ["Arquitetei soluções de integração serverless para sistemas de bioinformática com Python e AWS.", "Construí integradores de dados robustos que eliminaram mais de 95% dos erros de entrada manual.", "Desenvolvi automações em Python para otimizar fluxos de processamento de dados."] },
       { role: "Estagiário de Desenvolvimento de Sistemas", company: "CI&T", period: "Fev 2022 - Mar 2023", achievements: ["Desenvolvi componentes de UI responsivos para a plataforma 'BEES SOCIAL MEDIA' com React.js.", "Colaborei em uma arquitetura baseada em microsserviços usando Java e MongoDB.", "Participei ativamente de reuniões diárias e sessões de planejamento com times internacionais, utilizando o inglês como principal idioma de comunicação."] },
       { role: "Estagiário de Desenvolvimento de Sistemas", company: "Robert Bosch Ltda", period: "Nov 2021 - Fev 2022", achievements: ["Implementei e mantive funcionalidades de front-end para uma plataforma de e-commerce B2B usando AngularJS e React.", "Colaborei com equipes multiculturais em projetos web, conduzindo toda a comunicação técnica em inglês."] },
       { role: "Gerente de Projetos (Programa de Empreendedorismo)", company: "Dell Technologies", period: "Mar 2019 - Dez 2019", achievements: ["Liderei o desenvolvimento de uma startup do conceito ao MVP como parte de um programa de empreendedorismo de um ano durante o ensino médio.", "Apresentei o pitch final do produto para investidores reais e gerentes da Dell, recebendo feedback positivo sobre a viabilidade de mercado."] }
@@ -288,14 +288,14 @@ const About = () => {
                          <div>
                             <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{t.key_certifications}</h3>
                             <div className="mt-4 flex flex-wrap gap-4 items-center">
-                                <img src={awsBadgeImg} alt="AWS Cloud Practitioner Badge" className="h-20 object-contain"/>
+                                <img src={awsBadgeImg} alt="AWS Cloud Practitioner Badge" className="h-24 object-contain"/>
                                 <a href={t.english_cert_link} target="_blank" rel="noopener noreferrer" className="block transform transition-transform hover:scale-105">
-                                    <div className="relative w-48 h-24">
+                                    <div className="relative w-52 h-28">
                                         <img src="https://cdn.efset.org/efset-widget/img/v2/social-media/certificate/cefr-badge-C1.svg" role="img" alt="EF SET C1 Advanced Badge" className="absolute inset-0 w-full h-full" />
                                         <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                                            <img className="h-4 mb-1" src="https://a.storyblok.com/f/246158/103x24/eb1cf2418f/efset-logo_white.svg" alt="EF SET Logo"/>
-                                            <p className="text-xl font-bold">61/100</p>
-                                            <p className="text-xs font-semibold">C1 Advanced</p>
+                                            <img className="h-5 mb-1" src="https://a.storyblok.com/f/246158/103x24/eb1cf2418f/efset-logo_white.svg" alt="EF SET Logo"/>
+                                            <p className="text-2xl font-bold">61/100</p>
+                                            <p className="text-sm font-semibold">C1 Advanced</p>
                                         </div>
                                     </div>
                                 </a>
@@ -338,10 +338,10 @@ const Skills = () => {
 const CareerSection = () => {
     const { t } = useLanguage();
     return (
-        <section className="py-20 bg-slate-50 dark:bg-slate-900/50">
+        <section id="experience" className="py-20 bg-slate-50 dark:bg-slate-900/50">
             <div className="container mx-auto max-w-6xl px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
-                    <div id="experience" className="lg:col-span-3">
+                    <div className="lg:col-span-3">
                         <AnimatedComponent>
                            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">{t.experience_title}</h2>
                         </AnimatedComponent>
@@ -361,7 +361,7 @@ const CareerSection = () => {
                             ))}
                         </div>
                     </div>
-                     <div id="education" className="lg:col-span-2">
+                     <div className="lg:col-span-2">
                         <AnimatedComponent>
                            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">{t.education_title}</h2>
                         </AnimatedComponent>
@@ -462,4 +462,3 @@ export default function App() {
     </LanguageProvider>
   )
 }
-
