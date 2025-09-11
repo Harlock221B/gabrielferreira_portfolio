@@ -10,42 +10,42 @@ import aprenderviverImg from './assets/img/aprenderviver.png';
 
 // ===== HOOK PARA ANIMAÇÃO DE SCROLL =====
 const useOnScreen = (options) => {
-    const ref = useRef(null);
-    const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                setIsVisible(true);
-            }
-        }, options);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    }, options);
 
-        const currentRef = ref.current;
-        if (currentRef) {
-            observer.observe(currentRef);
-        }
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
-        return () => {
-            if (currentRef) {
-                observer.unobserve(currentRef);
-            }
-        };
-    }, [ref, options]);
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [ref, options]);
 
-    return [ref, isVisible];
+  return [ref, isVisible];
 };
 
 const AnimatedComponent = ({ children, delay = 0 }) => {
-    const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
-    return (
-        <div
-            ref={ref}
-            className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-            style={{ transitionDelay: `${delay}ms` }}
-        >
-            {children}
-        </div>
-    );
+  const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
 };
 
 
@@ -55,10 +55,10 @@ const LanguageContext = createContext();
 const content = {
   en: {
     nav_links: [
-        { href: "#about", text: "About" },
-        { href: "#projects", text: "Projects" },
-        { href: "#skills", text: "Skills" },
-        { href: "#experience", text: "Experience" },
+      { href: "#about", text: "About" },
+      { href: "#projects", text: "Projects" },
+      { href: "#skills", text: "Skills" },
+      { href: "#experience", text: "Experience" },
     ],
     nav_contact: "Contact",
     hero_subtitle: "Mid-Level Data Analyst & Front-End Developer",
@@ -67,8 +67,8 @@ const content = {
     about_description: "I am a developer passionate about technology and innovation. My journey has taken me through challenging projects where I was able to apply my knowledge to create solutions with purpose. I am always seeking new knowledge to face complex challenges with creative and efficient solutions.",
     languages_title: "Languages",
     languages: [
-        { lang: "Portuguese", level: "Native" },
-        { lang: "English", level: "C1 Advanced" },
+      { lang: "Portuguese", level: "Native" },
+      { lang: "English", level: "C1 Advanced" },
     ],
     key_certifications: "Key Certifications",
     skills_title: "Technical Skills",
@@ -89,25 +89,25 @@ const content = {
     english_cert_link: "https://cert.efset.org/d6Pcpi",
     projects_title: "Featured Projects",
     projects: [
-        { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "A complete website for a custom vehicle sales company. Features user authentication (login, JWT token, registration), admin panel for car management, and appointment scheduling, all connected to a Firebase database.", topics: ["React", "Firebase", "Authentication"], imageUrl: roadcarsImg },
-        { id: 2, name: "Fonação", url: "https://fonacao.com.br", description: "Institutional website and e-commerce platform for a speech therapy company, featuring a dynamic product catalog built with Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
-        { id: 4, name: "Aprender para a Vida (NGO)", url: "https://aprender-para-a-vida.vercel.app", description: "A website developed with Django, HTML, and Bootstrap for a local NGO. I acted as a mentor for a group of Univesp students in developing a complete and functional site for an integration project.", topics: ["Django", "Bootstrap", "HTML5", "Mentorship"], imageUrl: aprenderviverImg },
-        { id: 3, name: "Zeróbito", url: "https://github.com/Harlock221B", description: "Full-stack development of a web platform to reduce workplace accidents. The backend API was built with Node.js and Express.js, and the frontend was constructed with React.js.", topics: ["React.js", "Node.js", "Express.js", "API"], imageUrl: null }
+      { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "A complete website for a custom vehicle sales company. Features user authentication (login, JWT token, registration), admin panel for car management, and appointment scheduling, all connected to a Firebase database.", topics: ["React", "Firebase", "Authentication"], imageUrl: roadcarsImg },
+      { id: 2, name: "Fonação", url: "https://fonacao.com.br", description: "Institutional website and e-commerce platform for a speech therapy company, featuring a dynamic product catalog built with Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
+      { id: 4, name: "Aprender para a Vida (NGO)", url: "https://aprender-para-a-vida.vercel.app", description: "A website developed with Django, HTML, and Bootstrap for a local NGO. I acted as a mentor for a group of Univesp students in developing a complete and functional site for an integration project.", topics: ["Django", "Bootstrap", "HTML5", "Mentorship"], imageUrl: aprenderviverImg },
+      { id: 3, name: "Zeróbito", url: "https://github.com/Harlock221B", description: "Full-stack development of a web platform to reduce workplace accidents. The backend API was built with Node.js and Express.js, and the frontend was constructed with React.js.", topics: ["React.js", "Node.js", "Express.js", "API"], imageUrl: null }
     ],
     education_title: "Education",
     education_history: [
-        { degree: "Technology Degree in Systems Analysis and Development", institution: "UNICAMP - Campinas State University", period: "2021 - 2024", description: "Focused on the complete software development lifecycle, including requirements analysis, system design, database management, and project implementation using agile methodologies." },
-        { degree: "Technical Degree in Systems Development", institution: "SENAI - Roberto Mange", period: "2021", description: "Intensive technical training focused on practical programming, logic, and the development of desktop and web applications." },
-        { degree: "Technical Degree in Computer Science", institution: "ETEC Hortolândia", period: "2018 - 2020", description: "Solid foundation in computer science fundamentals, programming logic, computer networks, and hardware maintenance." }
+      { degree: "Technology Degree in Systems Analysis and Development", institution: "UNICAMP - Campinas State University", period: "2021 - 2024", description: "Focused on the complete software development lifecycle, including requirements analysis, system design, database management, and project implementation using agile methodologies." },
+      { degree: "Technical Degree in Systems Development", institution: "SENAI - Roberto Mange", period: "2021", description: "Intensive technical training focused on practical programming, logic, and the development of desktop and web applications." },
+      { degree: "Technical Degree in Computer Science", institution: "ETEC Hortolândia", period: "2018 - 2020", description: "Solid foundation in computer science fundamentals, programming logic, computer networks, and hardware maintenance." }
     ],
     footer_text: "All rights reserved."
   },
   pt: {
     nav_links: [
-        { href: "#about", text: "Sobre" },
-        { href: "#projects", text: "Projetos" },
-        { href: "#skills", text: "Habilidades" },
-        { href: "#experience", text: "Experiência" },
+      { href: "#about", text: "Sobre" },
+      { href: "#projects", text: "Projetos" },
+      { href: "#skills", text: "Habilidades" },
+      { href: "#experience", text: "Experiência" },
     ],
     nav_contact: "Entre em Contato",
     hero_subtitle: "Analista de Dados Pleno & Desenvolvedor Front-End",
@@ -116,8 +116,8 @@ const content = {
     about_description: "Sou um desenvolvedor apaixonado por tecnologia e inovação. Minha jornada me levou por projetos desafiadores onde pude aplicar meu conhecimento para criar soluções com propósito. Estou sempre buscando novos conhecimentos para enfrentar desafios complexos com soluções criativas e eficientes.",
     languages_title: "Idiomas",
     languages: [
-        { lang: "Português", level: "Nativo" },
-        { lang: "Inglês", level: "C1 Avançado" },
+      { lang: "Português", level: "Nativo" },
+      { lang: "Inglês", level: "C1 Avançado" },
     ],
     key_certifications: "Certificações em Destaque",
     skills_title: "Habilidades Técnicas",
@@ -137,17 +137,17 @@ const content = {
     ],
     english_cert_link: "https://cert.efset.org/d6Pcpi",
     projects_title: "Projetos em Destaque",
-     projects: [
-        { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "Site completo para uma empresa de venda de veículos personalizados. Possui autenticação de usuário (login, token JWT, registro), painel de admin para gestão de carros e agendamentos, tudo conectado ao Firebase.", topics: ["React", "Firebase", "Autenticação"], imageUrl: roadcarsImg },
-        { id: 2, name: "Fonação", url: "https://fonacao.com.br", description: "Site institucional e plataforma de e-commerce para uma empresa de fonoaudiologia, com um catálogo de produtos dinâmico desenvolvido com Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
-        { id: 4, name: "ONG Aprender para a Vida", url: "https://aprender-para-a-vida.vercel.app", description: "Um site desenvolvido com Django, HTML e Bootstrap para uma ONG local, onde atuei como tutor para um grupo de estudantes da Univesp no desenvolvimento de um site completo e funcional para um projeto de integração.", topics: ["Django", "Bootstrap", "HTML5", "Tutoria"], imageUrl: aprenderviverImg },
-        { id: 3, name: "Zeróbito", url: "https://github.com/Harlock221B", description: "Desenvolvimento full-stack de uma plataforma para redução de acidentes de trabalho. O back-end foi desenvolvido como uma API com Node.js e Express, enquanto o front-end foi construído em React.js.", topics: ["React.js", "Node.js", "Express.js", "API"], imageUrl: null }
+    projects: [
+      { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "Site completo para uma empresa de venda de veículos personalizados. Possui autenticação de usuário (login, token JWT, registro), painel de admin para gestão de carros e agendamentos, tudo conectado ao Firebase.", topics: ["React", "Firebase", "Autenticação"], imageUrl: roadcarsImg },
+      { id: 2, name: "Fonação", url: "https://fonacao.com.br", description: "Site institucional e plataforma de e-commerce para uma empresa de fonoaudiologia, com um catálogo de produtos dinâmico desenvolvido com Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
+      { id: 4, name: "ONG Aprender para a Vida", url: "https://aprender-para-a-vida.vercel.app", description: "Um site desenvolvido com Django, HTML e Bootstrap para uma ONG local, onde atuei como tutor para um grupo de estudantes da Univesp no desenvolvimento de um site completo e funcional para um projeto de integração.", topics: ["Django", "Bootstrap", "HTML5", "Tutoria"], imageUrl: aprenderviverImg },
+      { id: 3, name: "Zeróbito", url: "https://github.com/Harlock221B", description: "Desenvolvimento full-stack de uma plataforma para redução de acidentes de trabalho. O back-end foi desenvolvido como uma API com Node.js e Express, enquanto o front-end foi construído em React.js.", topics: ["React.js", "Node.js", "Express.js", "API"], imageUrl: null }
     ],
     education_title: "Formação Acadêmica",
     education_history: [
-        { degree: "Tecnólogo em Análise e Desenvolvimento de Sistemas", institution: "UNICAMP - Universidade Estadual de Campinas", period: "2021 - 2024", description: "Foco no ciclo de vida completo de desenvolvimento de software, incluindo análise de requisitos, arquitetura de sistemas, gestão de bancos de dados e implementação de projetos com metodologias ágeis." },
-        { degree: "Técnico em Desenvolvimento de Sistemas", institution: "SENAI - Roberto Mange", period: "2021", description: "Formação técnica intensiva com foco em programação prática, lógica e desenvolvimento de aplicações desktop e web." },
-        { degree: "Técnico em Informática (Integrado ao Ensino Médio)", institution: "ETEC Hortolândia", period: "2018 - 2020", description: "Base sólida em fundamentos da ciência da computação, lógica de programação, redes de computadores e manutenção de hardware." }
+      { degree: "Tecnólogo em Análise e Desenvolvimento de Sistemas", institution: "UNICAMP - Universidade Estadual de Campinas", period: "2021 - 2024", description: "Foco no ciclo de vida completo de desenvolvimento de software, incluindo análise de requisitos, arquitetura de sistemas, gestão de bancos de dados e implementação de projetos com metodologias ágeis." },
+      { degree: "Técnico em Desenvolvimento de Sistemas", institution: "SENAI - Roberto Mange", period: "2021", description: "Formação técnica intensiva com foco em programação prática, lógica e desenvolvimento de aplicações desktop e web." },
+      { degree: "Técnico em Informática (Integrado ao Ensino Médio)", institution: "ETEC Hortolândia", period: "2018 - 2020", description: "Base sólida em fundamentos da ciência da computação, lógica de programação, redes de computadores e manutenção de hardware." }
     ],
     footer_text: "Todos os direitos reservados."
   }
@@ -164,15 +164,15 @@ const useLanguage = () => useContext(LanguageContext);
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState('dark');
-    useEffect(() => {
-        const root = window.document.documentElement;
-        root.classList.remove(theme === 'dark' ? 'light' : 'dark');
-        root.classList.add(theme);
-    }, [theme]);
-    const toggleTheme = () => { setTheme(prev => prev === 'dark' ? 'light' : 'dark'); };
-    const value = { theme, toggleTheme };
-    return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+  const [theme, setTheme] = useState('dark');
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.classList.remove(theme === 'dark' ? 'light' : 'dark');
+    root.classList.add(theme);
+  }, [theme]);
+  const toggleTheme = () => { setTheme(prev => prev === 'dark' ? 'light' : 'dark'); };
+  const value = { theme, toggleTheme };
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };
 const useTheme = () => useContext(ThemeContext);
 
@@ -209,25 +209,25 @@ const Header = () => {
     <header className="sticky top-0 z-30 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <a href="#" className="text-xl font-bold text-slate-900 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Gabriel Ferreira Souza</a>
-        
+
         <nav className="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-700 dark:text-slate-300">
-            {t.nav_links.map(link => (
-                <a key={link.href} href={link.href} className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">{link.text}</a>
-            ))}
+          {t.nav_links.map(link => (
+            <a key={link.href} href={link.href} className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">{link.text}</a>
+          ))}
         </nav>
 
         <div className="flex items-center space-x-3">
-            <button onClick={toggleTheme} className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                {theme === 'dark' ? <SunIcon c={iconStyle}/> : <MoonIcon c={iconStyle} />}
-            </button>
-            <button onClick={setLanguage} className="flex items-center space-x-1 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                <GlobeIcon c={iconStyle}/>
-                <span className="text-sm font-bold">{language === 'pt' ? 'EN' : 'PT'}</span>
-            </button>
-            <div className="h-5 w-px bg-slate-300 dark:bg-slate-700"></div>
-            <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"><LinkedinIcon c={iconStyle} /></a>
-            <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"><GithubIcon c={iconStyle} /></a>
-            <a href={socialLinks.email} aria-label="Email" className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"><MailIcon c={iconStyle} /></a>
+          <button onClick={toggleTheme} className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+            {theme === 'dark' ? <SunIcon c={iconStyle} /> : <MoonIcon c={iconStyle} />}
+          </button>
+          <button onClick={setLanguage} className="flex items-center space-x-1 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+            <GlobeIcon c={iconStyle} />
+            <span className="text-sm font-bold">{language === 'pt' ? 'EN' : 'PT'}</span>
+          </button>
+          <div className="h-5 w-px bg-slate-300 dark:bg-slate-700"></div>
+          <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"><LinkedinIcon c={iconStyle} /></a>
+          <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"><GithubIcon c={iconStyle} /></a>
+          <a href={socialLinks.email} aria-label="Email" className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"><MailIcon c={iconStyle} /></a>
         </div>
       </div>
     </header>
@@ -235,222 +235,226 @@ const Header = () => {
 };
 
 const Hero = () => {
-    const { t } = useLanguage();
-    const heroStyle = {
-        backgroundImage: `url('https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=2070&auto=format&fit=crop')`
-    };
+  const { t } = useLanguage();
+  const heroStyle = {
+    backgroundImage: `url('https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=2070&auto=format&fit=crop')`
+  };
 
-    return (
-      <section className="relative bg-cover bg-center bg-no-repeat text-white" style={heroStyle}>
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-        <div className="relative container mx-auto max-w-6xl px-4 py-20 md:py-32 text-center">
-            <AnimatedComponent>
-                <img src={profileImageUrl} alt="Gabriel Ferreira Souza" className="mx-auto w-40 h-40 rounded-full object-cover border-4 border-slate-500 shadow-lg"/>
-            </AnimatedComponent>
-            <AnimatedComponent delay={100}>
-                <h1 className="mt-4 text-4xl md:text-6xl font-bold tracking-tight text-white">Gabriel Ferreira Souza</h1>
-                <h2 className="mt-2 text-2xl md:text-3xl font-semibold text-slate-300">{t.hero_subtitle}</h2>
-            </AnimatedComponent>
-            <AnimatedComponent delay={200}>
-                <p className="mt-8 max-w-3xl mx-auto text-lg text-slate-300">{t.hero_description}</p>
-            </AnimatedComponent>
-             <AnimatedComponent delay={300}>
-            <a href="mailto:gabrielferreira47b@gmail.com" className="mt-8 inline-block rounded-md bg-cyan-500 px-6 py-3 text-lg font-semibold text-slate-900 hover:bg-cyan-400 transition-all transform hover:scale-105">{t.nav_contact}</a>
-            </AnimatedComponent>
-        </div>
-      </section>
-    );
+  return (
+    <section className="relative bg-cover bg-center bg-no-repeat text-white" style={heroStyle}>
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+      <div className="relative container mx-auto max-w-6xl px-4 py-20 md:py-32 text-center">
+        <AnimatedComponent>
+          <img src={profileImageUrl} alt="Gabriel Ferreira Souza" className="mx-auto w-40 h-40 rounded-full object-cover border-4 border-slate-500 shadow-lg" />
+        </AnimatedComponent>
+        <AnimatedComponent delay={100}>
+          <h1 className="mt-4 text-4xl md:text-6xl font-bold tracking-tight text-white">Gabriel Ferreira Souza</h1>
+          <h2 className="mt-2 text-2xl md:text-3xl font-semibold text-slate-300">{t.hero_subtitle}</h2>
+        </AnimatedComponent>
+        <AnimatedComponent delay={200}>
+          <p className="mt-8 max-w-3xl mx-auto text-lg text-slate-300">{t.hero_description}</p>
+        </AnimatedComponent>
+        <AnimatedComponent delay={300}>
+          <a href="mailto:gabrielferreira47b@gmail.com" className="mt-8 inline-block rounded-md bg-cyan-500 px-6 py-3 text-lg font-semibold text-slate-900 hover:bg-cyan-400 transition-all transform hover:scale-105">{t.nav_contact}</a>
+        </AnimatedComponent>
+      </div>
+    </section>
+  );
 };
 
 const About = () => {
-    const { t } = useLanguage();
-    return (
-        <section id="about" className="py-20 bg-slate-50 dark:bg-slate-900/50">
-            <div className="container mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-                <div className="md:col-span-2">
-                    <AnimatedComponent>
-                        <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">{t.about_title}</h2>
-                        <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">{t.about_description}</p>
-                    </AnimatedComponent>
-                </div>
-                <div className="space-y-8">
-                     <AnimatedComponent delay={100}>
-                        <div>
-                            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{t.languages_title}</h3>
-                            <ul className="mt-2 space-y-1 text-slate-600 dark:text-slate-400">
-                                {t.languages.map(lang => (
-                                    <li key={lang.lang} className="flex justify-between"><span>{lang.lang}</span> <strong>{lang.level}</strong></li>
-                                ))}
-                            </ul>
-                        </div>
-                    </AnimatedComponent>
-                    <AnimatedComponent delay={200}>
-                         <div>
-                            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{t.key_certifications}</h3>
-                            <div className="mt-4 flex flex-wrap gap-4 items-center">
-                                <img src={awsBadgeImg} alt="AWS Cloud Practitioner Badge" className="h-28 object-contain"/>
-                                <a href={t.english_cert_link} target="_blank" rel="noopener noreferrer" className="block transform transition-transform hover:scale-105">
-                                    <div className="relative w-56 h-28">
-                                        <img src="https://cdn.efset.org/efset-widget/img/v2/social-media/certificate/cefr-badge-C1.svg" role="img" alt="EF SET C1 Advanced Badge" className="absolute inset-0 w-full h-full" />
-                                        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                                            <img className="h-6 mb-2" src="https://a.storyblok.com/f/246158/103x24/eb1cf2418f/efset-logo_white.svg" alt="EF SET Logo"/>
-                                            <p className="text-3xl font-bold">61/100</p>
-                                            <p className="text-md font-semibold">C1 Advanced</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </AnimatedComponent>
-                </div>
+  const { t } = useLanguage();
+  return (
+    <section id="about" className="py-20 bg-slate-50 dark:bg-slate-900/50">
+      <div className="container mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+        <div className="md:col-span-2">
+          <AnimatedComponent>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">{t.about_title}</h2>
+            <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">{t.about_description}</p>
+          </AnimatedComponent>
+        </div>
+        <div className="space-y-8">
+          <AnimatedComponent delay={100}>
+            <div>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{t.languages_title}</h3>
+              <ul className="mt-2 space-y-1 text-slate-600 dark:text-slate-400">
+                {t.languages.map(lang => (
+                  <li key={lang.lang} className="flex justify-between"><span>{lang.lang}</span> <strong>{lang.level}</strong></li>
+                ))}
+              </ul>
             </div>
-        </section>
-    );
+          </AnimatedComponent>
+          <AnimatedComponent delay={200}>
+            <div>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{t.key_certifications}</h3>
+              {/*
+          A mudança está em reduzir o tamanho dos badges (h-28 para h-20, w-56 para w-40)
+          e remover o flex-wrap para garantir que fiquem lado a lado.
+        */}
+              <div className="mt-4 flex items-center justify-start gap-4">
+                <img src={awsBadgeImg} alt="AWS Cloud Practitioner Badge" className="h-20 object-contain" />
+                <a href={t.english_cert_link} target="_blank" rel="noopener noreferrer" className="block transform transition-transform hover:scale-105">
+                  <div className="relative w-40 h-20">
+                    <img src="https://cdn.efset.org/efset-widget/img/v2/social-media/certificate/cefr-badge-C1.svg" role="img" alt="EF SET C1 Advanced Badge" className="absolute inset-0 w-full h-full" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+                      <img className="h-5 mb-1" src="https://a.storyblok.com/f/246158/103x24/eb1cf2418f/efset-logo_white.svg" alt="EF SET Logo" />
+                      <p className="text-2xl font-bold">61/100</p>
+                      <p className="text-sm font-semibold">C1 Advanced</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </AnimatedComponent>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 const Skills = () => {
-    const { t } = useLanguage();
-    const icons = [<CodeIcon c="w-8 h-8 mb-4 text-cyan-500" />, <DatabaseIcon c="w-8 h-8 mb-4 text-cyan-500" />, <ServerIcon c="w-8 h-8 mb-4 text-cyan-500" />, <UsersIcon c="w-8 h-8 mb-4 text-cyan-500" />];
-    return (
-      <section id="skills" className="py-20 bg-white dark:bg-slate-900">
-        <div className="container mx-auto max-w-6xl px-4">
-            <AnimatedComponent>
-                <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl text-center">{t.skills_title}</h2>
-            </AnimatedComponent>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {t.skills_categories.map((category, index) => (
-              <AnimatedComponent key={category.name} delay={100 * (index + 1)}>
+  const { t } = useLanguage();
+  const icons = [<CodeIcon c="w-8 h-8 mb-4 text-cyan-500" />, <DatabaseIcon c="w-8 h-8 mb-4 text-cyan-500" />, <ServerIcon c="w-8 h-8 mb-4 text-cyan-500" />, <UsersIcon c="w-8 h-8 mb-4 text-cyan-500" />];
+  return (
+    <section id="skills" className="py-20 bg-white dark:bg-slate-900">
+      <div className="container mx-auto max-w-6xl px-4">
+        <AnimatedComponent>
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl text-center">{t.skills_title}</h2>
+        </AnimatedComponent>
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {t.skills_categories.map((category, index) => (
+            <AnimatedComponent key={category.name} delay={100 * (index + 1)}>
               <div className="rounded-xl bg-slate-50 dark:bg-slate-800/50 p-8 shadow-lg border border-slate-200 dark:border-slate-700 h-full text-center">
                 {icons[index]}
                 <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-200">{category.name}</h3>
                 <div className="mt-4 flex flex-wrap gap-2 justify-center">
-                  {category.skills.map(skill => ( <span key={skill} className="rounded-full bg-slate-200 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-700 dark:text-slate-300">{skill}</span> ))}
+                  {category.skills.map(skill => (<span key={skill} className="rounded-full bg-slate-200 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-700 dark:text-slate-300">{skill}</span>))}
                 </div>
               </div>
-              </AnimatedComponent>
-            ))}
-          </div>
+            </AnimatedComponent>
+          ))}
         </div>
-      </section>
-    );
+      </div>
+    </section>
+  );
 };
 
 const CareerSection = () => {
-    const { t } = useLanguage();
-    return (
-        <section id="experience" className="py-20 bg-slate-50 dark:bg-slate-900/50">
-            <div className="container mx-auto max-w-6xl px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
-                    <div className="lg:col-span-3">
-                        <AnimatedComponent>
-                           <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">{t.experience_title}</h2>
-                        </AnimatedComponent>
-                        <div className="relative mt-12 border-l-2 border-slate-300 dark:border-slate-700">
-                            {t.experiences.map((exp, index) => (
-                                <AnimatedComponent key={index} delay={index * 100}>
-                                <div className="mb-12 ml-8">
-                                    <span className="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-8 ring-slate-50 dark:ring-[#1d2a41]"><BriefcaseIcon c="h-5 w-5 text-slate-600 dark:text-slate-300" /></span>
-                                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{exp.role}</h3>
-                                    <p className="block text-md font-normal leading-none text-cyan-600 dark:text-cyan-400">{exp.company}</p>
-                                    <time className="block text-sm font-normal leading-none text-slate-500 dark:text-slate-500 mt-1">{exp.period}</time>
-                                    <ul className="mt-4 list-disc list-inside space-y-2 text-slate-600 dark:text-slate-400">
-                                    {exp.achievements.map((ach, i) => <li key={i}>{ach}</li>)}
-                                    </ul>
-                                </div>
-                                </AnimatedComponent>
-                            ))}
-                        </div>
-                    </div>
-                     <div className="lg:col-span-2">
-                        <AnimatedComponent>
-                           <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">{t.education_title}</h2>
-                        </AnimatedComponent>
-                         <div className="relative mt-12 border-l-2 border-slate-300 dark:border-slate-700">
-                            {t.education_history.map((edu, index) => (
-                                <AnimatedComponent key={index} delay={index * 100}>
-                                <div className="mb-12 ml-8">
-                                    <span className="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-8 ring-slate-50 dark:ring-[#1d2a41]"><GraduationCapIcon c="h-5 w-5 text-slate-600 dark:text-slate-300" /></span>
-                                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{edu.degree}</h3>
-                                    <p className="block text-md font-normal leading-none text-cyan-600 dark:text-cyan-400">{edu.institution}</p>
-                                    <time className="block text-sm font-normal leading-none text-slate-500 dark:text-slate-500 mt-1">{edu.period}</time>
-                                    <p className="mt-2 text-slate-600 dark:text-slate-400">{edu.description}</p>
-                                </div>
-                                </AnimatedComponent>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+  const { t } = useLanguage();
+  return (
+    <section id="experience" className="py-20 bg-slate-50 dark:bg-slate-900/50">
+      <div className="container mx-auto max-w-6xl px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+          <div className="lg:col-span-3">
+            <AnimatedComponent>
+              <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">{t.experience_title}</h2>
+            </AnimatedComponent>
+            <div className="relative mt-12 border-l-2 border-slate-300 dark:border-slate-700">
+              {t.experiences.map((exp, index) => (
+                <AnimatedComponent key={index} delay={index * 100}>
+                  <div className="mb-12 ml-8">
+                    <span className="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-8 ring-slate-50 dark:ring-[#1d2a41]"><BriefcaseIcon c="h-5 w-5 text-slate-600 dark:text-slate-300" /></span>
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{exp.role}</h3>
+                    <p className="block text-md font-normal leading-none text-cyan-600 dark:text-cyan-400">{exp.company}</p>
+                    <time className="block text-sm font-normal leading-none text-slate-500 dark:text-slate-500 mt-1">{exp.period}</time>
+                    <ul className="mt-4 list-disc list-inside space-y-2 text-slate-600 dark:text-slate-400">
+                      {exp.achievements.map((ach, i) => <li key={i}>{ach}</li>)}
+                    </ul>
+                  </div>
+                </AnimatedComponent>
+              ))}
             </div>
-        </section>
-    );
+          </div>
+          <div className="lg:col-span-2">
+            <AnimatedComponent>
+              <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">{t.education_title}</h2>
+            </AnimatedComponent>
+            <div className="relative mt-12 border-l-2 border-slate-300 dark:border-slate-700">
+              {t.education_history.map((edu, index) => (
+                <AnimatedComponent key={index} delay={index * 100}>
+                  <div className="mb-12 ml-8">
+                    <span className="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-8 ring-slate-50 dark:ring-[#1d2a41]"><GraduationCapIcon c="h-5 w-5 text-slate-600 dark:text-slate-300" /></span>
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{edu.degree}</h3>
+                    <p className="block text-md font-normal leading-none text-cyan-600 dark:text-cyan-400">{edu.institution}</p>
+                    <time className="block text-sm font-normal leading-none text-slate-500 dark:text-slate-500 mt-1">{edu.period}</time>
+                    <p className="mt-2 text-slate-600 dark:text-slate-400">{edu.description}</p>
+                  </div>
+                </AnimatedComponent>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 const Projects = () => {
-    const { t } = useLanguage();
-    return (
-      <section id="projects" className="py-20 bg-white dark:bg-slate-900">
-        <div className="container mx-auto max-w-6xl px-4">
-             <AnimatedComponent>
+  const { t } = useLanguage();
+  return (
+    <section id="projects" className="py-20 bg-white dark:bg-slate-900">
+      <div className="container mx-auto max-w-6xl px-4">
+        <AnimatedComponent>
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">{t.projects_title}</h2>
-            </AnimatedComponent>
-          <div className="mt-12 grid grid-cols-1 gap-16">
-            {t.projects.map((repo, index) => (
-                 <AnimatedComponent key={repo.id} delay={index * 100}>
+        </AnimatedComponent>
+        <div className="mt-12 grid grid-cols-1 gap-16">
+          {t.projects.map((repo, index) => (
+            <AnimatedComponent key={repo.id} delay={index * 100}>
               <div className="group grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 items-center">
-                
-                { repo.imageUrl && (
-                    <div className={`md:col-span-3 ${index % 2 === 1 ? 'md:order-last' : ''}`}>
-                        <a href={repo.url} target="_blank" rel="noopener noreferrer">
-                            <img src={repo.imageUrl} alt={`Screenshot of ${repo.name}`} className="rounded-lg shadow-lg hover:shadow-xl transition-shadow aspect-video object-cover w-full transform group-hover:scale-105 transition-transform duration-300" />
-                        </a>
-                    </div>
+
+                {repo.imageUrl && (
+                  <div className={`md:col-span-3 ${index % 2 === 1 ? 'md:order-last' : ''}`}>
+                    <a href={repo.url} target="_blank" rel="noopener noreferrer">
+                      <img src={repo.imageUrl} alt={`Screenshot of ${repo.name}`} className="rounded-lg shadow-lg hover:shadow-xl transition-shadow aspect-video object-cover w-full transform group-hover:scale-105 transition-transform duration-300" />
+                    </a>
+                  </div>
                 )}
 
                 <div className={repo.imageUrl ? "md:col-span-2" : "md:col-span-5"}>
-                    <h3 className="text-2xl font-semibold text-cyan-600 dark:text-cyan-400 flex items-center">
-                        {repo.name}
-                        <a href={repo.url} target="_blank" rel="noopener noreferrer" className="ml-2 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"><ExternalLinkIcon c="h-5 w-5" /></a>
-                    </h3>
-                    <p className="mt-4 text-slate-600 dark:text-slate-400">{repo.description}</p>
+                  <h3 className="text-2xl font-semibold text-cyan-600 dark:text-cyan-400 flex items-center">
+                    {repo.name}
+                    <a href={repo.url} target="_blank" rel="noopener noreferrer" className="ml-2 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"><ExternalLinkIcon c="h-5 w-5" /></a>
+                  </h3>
+                  <p className="mt-4 text-slate-600 dark:text-slate-400">{repo.description}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
-                    {repo.topics?.map(topic => ( <span key={topic} className="rounded-full bg-slate-200 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-700 dark:text-slate-300">{topic}</span> ))}
+                    {repo.topics?.map(topic => (<span key={topic} className="rounded-full bg-slate-200 dark:bg-slate-700 px-3 py-1 text-sm font-medium text-slate-700 dark:text-slate-300">{topic}</span>))}
                   </div>
                 </div>
               </div>
-              </AnimatedComponent>
-            ))}
-          </div>
+            </AnimatedComponent>
+          ))}
         </div>
-      </section>
-    );
+      </div>
+    </section>
+  );
 };
 
 
 const Footer = () => {
-    const { t } = useLanguage();
-    return (
-      <footer className="border-t border-slate-200 dark:border-slate-800 py-8 bg-slate-50 dark:bg-slate-900/50">
-        <div className="container mx-auto max-w-6xl px-4 text-center text-slate-500 dark:text-slate-400">
-          <p>&copy; {new Date().getFullYear()} Gabriel Ferreira Souza. {t.footer_text}</p>
-        </div>
-      </footer>
-    );
+  const { t } = useLanguage();
+  return (
+    <footer className="border-t border-slate-200 dark:border-slate-800 py-8 bg-slate-50 dark:bg-slate-900/50">
+      <div className="container mx-auto max-w-6xl px-4 text-center text-slate-500 dark:text-slate-400">
+        <p>&copy; {new Date().getFullYear()} Gabriel Ferreira Souza. {t.footer_text}</p>
+      </div>
+    </footer>
+  );
 };
 
 const PortfolioContent = () => {
-    return (
-        <div className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 antialiased selection:bg-cyan-300/70 selection:text-cyan-900 transition-colors duration-300">
-            <Header />
-            <main>
-                <Hero />
-                <About />
-                <Projects />
-                <Skills />
-                <CareerSection />
-            </main>
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 antialiased selection:bg-cyan-300/70 selection:text-cyan-900 transition-colors duration-300">
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <CareerSection />
+      </main>
+      <Footer />
+    </div>
+  );
 }
 
 export default function App() {
