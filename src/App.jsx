@@ -1,5 +1,12 @@
 import React, { useState, useEffect, createContext, useContext, useRef } from 'react';
 
+// Importando suas imagens locais
+import profileImageUrl from './assets/img/perfil.png';
+import roadcarsImg from './assets/img/roadcars.png';
+import fonacaoImg from './assets/img/fonacao.png';
+import awsBadgeImg from './assets/img/badge_cloud.png';
+import englishCertImg from './assets/img/ingles.png';
+
 // ===== HOOK PARA ANIMAÇÃO DE SCROLL =====
 const useOnScreen = (options) => {
     const ref = useRef(null);
@@ -46,7 +53,6 @@ const LanguageContext = createContext();
 const content = {
   en: {
     nav_contact: "Contact",
-    profile_image_url: "https://placehold.co/160x160/E0E7FF/4F46E5?text=Your+Photo",
     hero_subtitle: "Mid-Level Data Analyst & Front-End Developer",
     hero_description: "Over 3 years of experience transforming complex data into actionable insights. I build modern web interfaces with React, create interactive systems with Streamlit, and develop data studies using Python, Pandas, and Plotly. Specialized in bioinformatics and passionate about using technology to solve complex challenges.",
     skills_title: "Technical Skills",
@@ -65,8 +71,6 @@ const content = {
       { role: "Project Manager (Entrepreneurship Program)", company: "Dell Technologies", period: "Mar 2019 - Dec 2019", achievements: ["Led the development of a startup from concept to MVP as part of a year-long high school entrepreneurship program.", "Created the business plan, product strategy, and a functional prototype for a new service.", "Pitched the final product to real investors and Dell managers, receiving positive feedback on market viability."] }
     ],
     certifications_title: "Certifications & Dashboards",
-    aws_badge_url: "https://placehold.co/200x200/FFFFFF/1E293B?text=AWS+Badge",
-    english_cert_url: "https://placehold.co/300x200/FFFFFF/1E293B?text=English+Cert.",
     english_cert_link: "https://cert.efset.org/d6Pcpi",
     dashboards_title: "Dashboard Examples",
     dashboards: [
@@ -75,8 +79,8 @@ const content = {
     ],
     projects_title: "Featured Projects",
     projects: [
-        { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "A complete website for a custom vehicle sales company. Features user authentication (login, JWT token, registration), admin panel for car management, and appointment scheduling, all connected to a Firebase database.", topics: ["React", "Next.js", "Firebase", "Authentication"], imageUrl: "https://placehold.co/600x400/1E293B/94A3B8?text=Project+Print" },
-        { id: 2, name: "Fonação Clinic", url: "https://fonacao.com.br", description: "Institutional website and e-commerce platform for a speech therapy clinic, featuring a dynamic product catalog built with Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: "https://placehold.co/600x400/1E293B/94A3B8?text=Project+Print" },
+        { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "A complete website for a custom vehicle sales company. Features user authentication (login, JWT token, registration), admin panel for car management, and appointment scheduling, all connected to a Firebase database.", topics: ["React", "Next.js", "Firebase", "Authentication"], imageUrl: roadcarsImg },
+        { id: 2, name: "Fonação Clinic", url: "https://fonacao.com.br", description: "Institutional website and e-commerce platform for a speech therapy clinic, featuring a dynamic product catalog built with Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
         { id: 3, name: "Zeróbito", url: "https://github.com/Harlock221B", description: "Web platform designed to reduce workplace accidents through real-time data analysis. Key achievement: implemented an incident reporting and alert feature that decreased emergency response time by approximately 30%.", topics: ["Node.js", "MongoDB", "Data Analysis"], imageUrl: "https://placehold.co/600x400/1E293B/94A3B8?text=Project+Print" }
     ],
     education_title: "Education",
@@ -89,7 +93,6 @@ const content = {
   },
   pt: {
     nav_contact: "Entre em Contato",
-    profile_image_url: "https://placehold.co/160x160/E0E7FF/4F46E5?text=Sua+Foto",
     hero_subtitle: "Analista de Dados Pleno & Desenvolvedor Front-End",
     hero_description: "Mais de 3 anos de experiência transformando dados complexos em insights acionáveis. Construo interfaces web modernas com React, crio sistemas interativos com Streamlit e desenvolvo estudos de dados com Python, Pandas e Plotly. Especializado em bioinformática e apaixonado por usar tecnologia para resolver desafios complexos.",
     skills_title: "Habilidades Técnicas",
@@ -108,8 +111,6 @@ const content = {
       { role: "Gerente de Projetos (Programa de Empreendedorismo)", company: "Dell Technologies", period: "Mar 2019 - Dez 2019", achievements: ["Liderei o desenvolvimento de uma startup do conceito ao MVP como parte de um programa de empreendedorismo de um ano durante o ensino médio.", "Criei o plano de negócios, a estratégia de produto e um protótipo funcional para um novo serviço.", "Apresentei o pitch final do produto para investidores reais e gerentes da Dell, recebendo feedback positivo sobre a viabilidade de mercado."] }
     ],
     certifications_title: "Certificações e Dashboards",
-    aws_badge_url: "https://placehold.co/200x200/FFFFFF/1E293B?text=Badge+AWS",
-    english_cert_url: "https://placehold.co/300x200/FFFFFF/1E293B?text=Certificado+Inglês",
     english_cert_link: "https://cert.efset.org/d6Pcpi",
     dashboards_title: "Exemplos de Dashboards",
     dashboards: [
@@ -118,8 +119,8 @@ const content = {
     ],
     projects_title: "Projetos em Destaque",
      projects: [
-        { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "Site completo para uma empresa de venda de veículos personalizados. Possui autenticação de usuário (login, token JWT, registro), painel de admin para gestão de carros e agendamentos, tudo conectado ao Firebase.", topics: ["React", "Next.js", "Firebase", "Authentication"], imageUrl: "https://placehold.co/600x400/1E293B/94A3B8?text=Print+do+Projeto" },
-        { id: 2, name: "Clínica Fonação", url: "https://fonacao.com.br", description: "Site institucional e plataforma de e-commerce para uma clínica de fonoaudiologia, com um catálogo de produtos dinâmico desenvolvido com Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: "https://placehold.co/600x400/1E293B/94A3B8?text=Print+do+Projeto" },
+        { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "Site completo para uma empresa de venda de veículos personalizados. Possui autenticação de usuário (login, token JWT, registro), painel de admin para gestão de carros e agendamentos, tudo conectado ao Firebase.", topics: ["React", "Next.js", "Firebase", "Authentication"], imageUrl: roadcarsImg },
+        { id: 2, name: "Clínica Fonação", url: "https://fonacao.com.br", description: "Site institucional e plataforma de e-commerce para uma clínica de fonoaudiologia, com um catálogo de produtos dinâmico desenvolvido com Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
         { id: 3, name: "Zeróbito", url: "https://github.com/Harlock221B", description: "Plataforma web projetada para reduzir acidentes de trabalho através da análise de dados em tempo real. Principal conquista: implementei um recurso de alerta de incidentes que diminuiu o tempo de resposta a emergências em cerca de 30%.", topics: ["Node.js", "MongoDB", "Data Analysis"], imageUrl: "https://placehold.co/600x400/1E293B/94A3B8?text=Print+do+Projeto" }
     ],
     education_title: "Formação Acadêmica",
@@ -209,7 +210,7 @@ const Hero = () => {
         <div className="container mx-auto max-w-6xl px-4">
           <AnimatedComponent>
             <div className="flex flex-col md:flex-row items-center gap-8">
-                <img src={t.profile_image_url} alt="Gabriel Ferreira Souza" className="w-40 h-40 rounded-full object-cover border-4 border-slate-300 dark:border-slate-700 shadow-lg"/>
+                <img src={profileImageUrl} alt="Gabriel Ferreira Souza" className="w-40 h-40 rounded-full object-cover border-4 border-slate-300 dark:border-slate-700 shadow-lg"/>
                 <div className="text-center md:text-left">
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-slate-200">Gabriel Ferreira Souza</h1>
                     <h2 className="mt-2 text-2xl md:text-3xl font-semibold text-slate-700 dark:text-slate-400">{t.hero_subtitle}</h2>
@@ -312,11 +313,11 @@ const CertificationsDashboards = () => {
                 </AnimatedComponent>
                 <div className="mt-12 flex flex-col md:flex-row gap-8 items-center justify-center">
                     <AnimatedComponent delay={100}>
-                    <img src={t.aws_badge_url} alt="AWS Cloud Practitioner Badge" className="w-48 h-48 object-contain"/>
+                    <img src={awsBadgeImg} alt="AWS Cloud Practitioner Badge" className="w-48 h-48 object-contain"/>
                     </AnimatedComponent>
                     <AnimatedComponent delay={200}>
                     <a href={t.english_cert_link} target="_blank" rel="noopener noreferrer">
-                       <img src={t.english_cert_url} alt="English C1 Certificate" className="max-w-xs w-full object-contain rounded-lg shadow-md hover:shadow-xl transition-all transform hover:scale-105"/>
+                       <img src={englishCertImg} alt="English C1 Certificate" className="max-w-xs w-full object-contain rounded-lg shadow-md hover:shadow-xl transition-all transform hover:scale-105"/>
                     </a>
                     </AnimatedComponent>
                 </div>
