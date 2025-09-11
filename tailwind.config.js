@@ -4,7 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class', // <-- ESSA LINHA É ESSENCIAL PARA O TEMA FUNCIONAR!
+  darkMode: 'class',
   theme: {
     extend: {},
   },
