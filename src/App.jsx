@@ -90,7 +90,7 @@ const content = {
     projects_title: "Featured Projects",
     projects: [
         { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "A complete website for a custom vehicle sales company. Features user authentication (login, JWT token, registration), admin panel for car management, and appointment scheduling, all connected to a Firebase database.", topics: ["React", "Firebase", "Authentication"], imageUrl: roadcarsImg },
-        { id: 2, name: "Fonação Clinic", url: "https://fonacao.com.br", description: "Institutional website and e-commerce platform for a speech therapy clinic, featuring a dynamic product catalog built with Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
+        { id: 2, name: "Fonação", url: "https://fonacao.com.br", description: "Institutional website and e-commerce platform for a speech therapy company, featuring a dynamic product catalog built with Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
         { id: 4, name: "Aprender para a Vida (NGO)", url: "https://aprender-para-a-vida.vercel.app", description: "A website developed with Django, HTML, and Bootstrap for a local NGO. I acted as a mentor for a group of Univesp students in developing a complete and functional site for an integration project.", topics: ["Django", "Bootstrap", "HTML5", "Mentorship"], imageUrl: aprenderviverImg },
         { id: 3, name: "Zeróbito", url: "https://github.com/Harlock221B", description: "Full-stack development of a web platform to reduce workplace accidents. The backend API was built with Node.js and Express.js, and the frontend was constructed with React.js.", topics: ["React.js", "Node.js", "Express.js", "API"], imageUrl: null }
     ],
@@ -139,7 +139,7 @@ const content = {
     projects_title: "Projetos em Destaque",
      projects: [
         { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "Site completo para uma empresa de venda de veículos personalizados. Possui autenticação de usuário (login, token JWT, registro), painel de admin para gestão de carros e agendamentos, tudo conectado ao Firebase.", topics: ["React", "Firebase", "Autenticação"], imageUrl: roadcarsImg },
-        { id: 2, name: "Clínica Fonação", url: "https://fonacao.com.br", description: "Site institucional e plataforma de e-commerce para uma clínica de fonoaudiologia, com um catálogo de produtos dinâmico desenvolvido com Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
+        { id: 2, name: "Fonação", url: "https://fonacao.com.br", description: "Site institucional e plataforma de e-commerce para uma empresa de fonoaudiologia, com um catálogo de produtos dinâmico desenvolvido com Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
         { id: 4, name: "ONG Aprender para a Vida", url: "https://aprender-para-a-vida.vercel.app", description: "Um site desenvolvido com Django, HTML e Bootstrap para uma ONG local, onde atuei como tutor para um grupo de estudantes da Univesp no desenvolvimento de um site completo e funcional para um projeto de integração.", topics: ["Django", "Bootstrap", "HTML5", "Tutoria"], imageUrl: aprenderviverImg },
         { id: 3, name: "Zeróbito", url: "https://github.com/Harlock221B", description: "Desenvolvimento full-stack de uma plataforma para redução de acidentes de trabalho. O back-end foi desenvolvido como uma API com Node.js e Express, enquanto o front-end foi construído em React.js.", topics: ["React.js", "Node.js", "Express.js", "API"], imageUrl: null }
     ],
@@ -288,14 +288,14 @@ const About = () => {
                          <div>
                             <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{t.key_certifications}</h3>
                             <div className="mt-4 flex flex-wrap gap-4 items-center">
-                                <img src={awsBadgeImg} alt="AWS Cloud Practitioner Badge" className="h-24 object-contain"/>
+                                <img src={awsBadgeImg} alt="AWS Cloud Practitioner Badge" className="h-28 object-contain"/>
                                 <a href={t.english_cert_link} target="_blank" rel="noopener noreferrer" className="block transform transition-transform hover:scale-105">
-                                    <div className="relative w-52 h-28">
+                                    <div className="relative w-56 h-28">
                                         <img src="https://cdn.efset.org/efset-widget/img/v2/social-media/certificate/cefr-badge-C1.svg" role="img" alt="EF SET C1 Advanced Badge" className="absolute inset-0 w-full h-full" />
                                         <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                                            <img className="h-5 mb-1" src="https://a.storyblok.com/f/246158/103x24/eb1cf2418f/efset-logo_white.svg" alt="EF SET Logo"/>
-                                            <p className="text-2xl font-bold">61/100</p>
-                                            <p className="text-sm font-semibold">C1 Advanced</p>
+                                            <img className="h-6 mb-2" src="https://a.storyblok.com/f/246158/103x24/eb1cf2418f/efset-logo_white.svg" alt="EF SET Logo"/>
+                                            <p className="text-3xl font-bold">61/100</p>
+                                            <p className="text-md font-semibold">C1 Advanced</p>
                                         </div>
                                     </div>
                                 </a>
