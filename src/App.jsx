@@ -80,8 +80,8 @@ const content = {
     ],
     experience_title: "Professional Experience",
     experiences: [
-      { role: "Mid-Level Data Analyst", company: "Hospital Israelita Albert Einstein", period: "Feb 2025 - Present", achievements: ["Engineered and automated ETL pipelines, reducing data processing time by 40%.", "Designed and deployed over 10 interactive dashboards in Power BI.", "Developed automations with Python to improve processing and reduce manual rework.", "Managed a multi-terabyte Data Lake, ensuring data integrity and compliance."] },
-      { role: "Data Analyst", company: "Hospital Israelita Albert Einstein", period: "Nov 2023 - Feb 2025", achievements: ["Architected serverless integration solutions for bioinformatics systems using Python and AWS.", "Built robust data integrators that eliminated over 95% of manual data entry errors.", "Developed Python automations to optimize data processing workflows."] },
+      { role: "Mid-Level Data Analyst", company: "Hospital Israelita Albert Einstein", period: "Feb 2025 - Present", achievements: ["Developed automations and dashboards focused on presenting laboratory data and natural language processing studies.", "Created data visualizations using Power BI, Streamlit, and Python libraries (Pandas, Plotly).", "Analyzed clinical and genomic data to support innovative research and projects.", "Collaborated with multidisciplinary teams (IT, Bioinformatics, Clinical) to deliver data-driven solutions."] },
+      { role: "Data Analyst", company: "Hospital Israelita Albert Einstein", period: "Nov 2023 - Feb 2025", achievements: ["Architected and developed serverless integration solutions for bioinformatics systems using Python and AWS services (Lambda, API Gateway, DynamoDB).", "Implemented data integrators to connect analysis and laboratory systems, optimizing data workflows.", "Maintained and developed tools and orchestration systems in bioinformatics using Python and CDK."] },
       { role: "Systems Development Intern", company: "CI&T", period: "Feb 2022 - Mar 2023", achievements: ["Developed responsive UI components for the 'BEES SOCIAL MEDIA' platform using React.js.", "Collaborated on a microservices-based architecture using Java and MongoDB.", "Actively participated in daily meetings and planning sessions with international teams, using English as the primary language of communication."] },
       { role: "Systems Development Intern", company: "Robert Bosch Ltda", period: "Nov 2021 - Feb 2022", achievements: ["Implemented and maintained front-end features for a B2B e-commerce platform using AngularJS and React.", "Collaborated with multicultural teams on web projects, conducting all technical communication in English."] },
       { role: "Project Manager (Entrepreneurship Program)", company: "Dell Technologies", period: "Mar 2019 - Dec 2019", achievements: ["Led the development of a startup from concept to MVP as part of a year-long high school entrepreneurship program.", "Pitched the final product to real investors and Dell managers, receiving positive feedback on market viability."] }
@@ -129,8 +129,8 @@ const content = {
     ],
     experience_title: "Experiência Profissional",
     experiences: [
-      { role: "Analista de Dados Pleno", company: "Hospital Israelita Albert Einstein", period: "Fev 2025 - Presente", achievements: ["Desenvolvi e automatizei pipelines de ETL, reduzindo o tempo de processamento de dados em 40%.", "Criei mais de 10 dashboards interativos em Power BI.", "Desenvolvi automações com Python para otimizar o processamento e diminuir o retrabalho.", "Gerenciei um Data Lake de múltiplos terabytes, garantindo integridade e conformidade dos dados."] },
-      { role: "Analista de Dados", company: "Hospital Israelita Albert Einstein", period: "Nov 2023 - Fev 2025", achievements: ["Arquitetei soluções de integração serverless para sistemas de bioinformática com Python e AWS.", "Construí integradores de dados robustos que eliminaram mais de 95% dos erros de entrada manual.", "Desenvolvi automações em Python para otimizar fluxos de processamento de dados."] },
+      { role: "Analista de Dados Pleno", company: "Hospital Israelita Albert Einstein", period: "Fev 2025 - Presente", achievements: ["Desenvolvimento de automações e dashboards com foco na apresentação de dados laboratoriais e estudos de processamento de linguagem natural.", "Criação de visualizações de dados utilizando Power BI, Streamlit e bibliotecas Python (Pandas, Plotly).", "Análise de dados clínicos e genômicos para apoiar pesquisas e projetos inovadores.", "Colaboração com equipes multidisciplinares (TI, Bioinformática, Clínicas) para entregar soluções baseadas em dados."] },
+      { role: "Analista de Dados", company: "Hospital Israelita Albert Einstein", period: "Nov 2023 - Fev 2025", achievements: ["Arquitetura e desenvolvimento de soluções de integração serverless para sistemas de bioinformática utilizando Python e serviços AWS (Lambda, API Gateway, DynamoDB).", "Implementação de integradores para conectar sistemas de análise e laboratoriais, otimizando os fluxos de dados.", "Manutenção e desenvolvimento de ferramentas e sistemas de orquestração em bioinformática com Python e CDK."] },
       { role: "Estagiário de Desenvolvimento de Sistemas", company: "CI&T", period: "Fev 2022 - Mar 2023", achievements: ["Desenvolvi componentes de UI responsivos para a plataforma 'BEES SOCIAL MEDIA' com React.js.", "Colaborei em uma arquitetura baseada em microsserviços usando Java e MongoDB.", "Participei ativamente de reuniões diárias e sessões de planejamento com times internacionais, utilizando o inglês como principal idioma de comunicação."] },
       { role: "Estagiário de Desenvolvimento de Sistemas", company: "Robert Bosch Ltda", period: "Nov 2021 - Fev 2022", achievements: ["Implementei e mantive funcionalidades de front-end para uma plataforma de e-commerce B2B usando AngularJS e React.", "Colaborei com equipes multiculturais em projetos web, conduzindo toda a comunicação técnica em inglês."] },
       { role: "Gerente de Projetos (Programa de Empreendedorismo)", company: "Dell Technologies", period: "Mar 2019 - Dez 2019", achievements: ["Liderei o desenvolvimento de uma startup do conceito ao MVP como parte de um programa de empreendedorismo de um ano durante o ensino médio.", "Apresentei o pitch final do produto para investidores reais e gerentes da Dell, recebendo feedback positivo sobre a viabilidade de mercado."] }
@@ -152,7 +152,6 @@ const content = {
     footer_text: "Todos os direitos reservados."
   }
 };
-
 const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState('pt');
   const toggleLanguage = () => { setLanguage(prev => prev === 'pt' ? 'en' : 'pt'); };
@@ -160,22 +159,6 @@ const LanguageProvider = ({ children }) => {
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 };
 const useLanguage = () => useContext(LanguageContext);
-
-const ThemeContext = createContext();
-
-const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('dark');
-  useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove(theme === 'dark' ? 'light' : 'dark');
-    root.classList.add(theme);
-  }, [theme]);
-  const toggleTheme = () => { setTheme(prev => prev === 'dark' ? 'light' : 'dark'); };
-  const value = { theme, toggleTheme };
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
-};
-const useTheme = () => useContext(ThemeContext);
-
 
 // ===== ÍCONES SVG =====
 const BriefcaseIcon = ({ c }) => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={c}><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>);
@@ -195,9 +178,9 @@ const UsersIcon = ({ c }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" 
 
 // ===== COMPONENTES DA PÁGINA =====
 
+// Substitua o seu componente Header por este
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
   const socialLinks = {
     linkedin: "https://www.linkedin.com/in/gabriel-ferreira221b",
     github: "https://github.com/Harlock221B",
@@ -216,10 +199,7 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center space-x-3">
-          <button onClick={toggleTheme} className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-            {theme === 'dark' ? <SunIcon c={iconStyle} /> : <MoonIcon c={iconStyle} />}
-          </button>
+        <div className="flex items-center space-x-4">
           <button onClick={setLanguage} className="flex items-center space-x-1 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
             <GlobeIcon c={iconStyle} />
             <span className="text-sm font-bold">{language === 'pt' ? 'EN' : 'PT'}</span>
@@ -342,22 +322,22 @@ const Skills = () => {
 const CareerSection = () => {
   const { t } = useLanguage();
   return (
-    <section id="experience" className="py-20 bg-slate-50 dark:bg-slate-900/50">
+    <section id="experience" className="py-20 bg-slate-900/50">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 bg-slate-800/30 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
             <AnimatedComponent>
-              <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">{t.experience_title}</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-slate-200 sm:text-4xl">{t.experience_title}</h2>
             </AnimatedComponent>
-            <div className="relative mt-12 border-l-2 border-slate-300 dark:border-slate-700">
+            <div className="relative mt-12 border-l-2 border-slate-700">
               {t.experiences.map((exp, index) => (
                 <AnimatedComponent key={index} delay={index * 100}>
                   <div className="mb-12 ml-8">
-                    <span className="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-8 ring-slate-50 dark:ring-[#1d2a41]"><BriefcaseIcon c="h-5 w-5 text-slate-600 dark:text-slate-300" /></span>
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{exp.role}</h3>
-                    <p className="block text-md font-normal leading-none text-cyan-600 dark:text-cyan-400">{exp.company}</p>
-                    <time className="block text-sm font-normal leading-none text-slate-500 dark:text-slate-500 mt-1">{exp.period}</time>
-                    <ul className="mt-4 list-disc list-inside space-y-2 text-slate-600 dark:text-slate-400">
+                    <span className="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-slate-700 ring-8 ring-[#1e293b]"><BriefcaseIcon c="h-5 w-5 text-slate-300" /></span>
+                    <h3 className="text-xl font-semibold text-slate-200">{exp.role}</h3>
+                    <p className="block text-md font-normal leading-none text-cyan-400">{exp.company}</p>
+                    <time className="block text-sm font-normal leading-none text-slate-500 mt-1">{exp.period}</time>
+                    <ul className="mt-4 list-disc list-inside space-y-2 text-slate-400">
                       {exp.achievements.map((ach, i) => <li key={i}>{ach}</li>)}
                     </ul>
                   </div>
@@ -365,19 +345,19 @@ const CareerSection = () => {
               ))}
             </div>
           </div>
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 bg-slate-800/30 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
             <AnimatedComponent>
-              <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200 sm:text-4xl">{t.education_title}</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-slate-200 sm:text-4xl">{t.education_title}</h2>
             </AnimatedComponent>
-            <div className="relative mt-12 border-l-2 border-slate-300 dark:border-slate-700">
+            <div className="relative mt-12 border-l-2 border-slate-700">
               {t.education_history.map((edu, index) => (
                 <AnimatedComponent key={index} delay={index * 100}>
                   <div className="mb-12 ml-8">
-                    <span className="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-8 ring-slate-50 dark:ring-[#1d2a41]"><GraduationCapIcon c="h-5 w-5 text-slate-600 dark:text-slate-300" /></span>
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-200">{edu.degree}</h3>
-                    <p className="block text-md font-normal leading-none text-cyan-600 dark:text-cyan-400">{edu.institution}</p>
-                    <time className="block text-sm font-normal leading-none text-slate-500 dark:text-slate-500 mt-1">{edu.period}</time>
-                    <p className="mt-2 text-slate-600 dark:text-slate-400">{edu.description}</p>
+                    <span className="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-slate-700 ring-8 ring-[#1e293b]"><GraduationCapIcon c="h-5 w-5 text-slate-300" /></span>
+                    <h3 className="text-xl font-semibold text-slate-200">{edu.degree}</h3>
+                    <p className="block text-md font-normal leading-none text-cyan-400">{edu.institution}</p>
+                    <time className="block text-sm font-normal leading-none text-slate-500 mt-1">{edu.period}</time>
+                    <p className="mt-2 text-slate-400">{edu.description}</p>
                   </div>
                 </AnimatedComponent>
               ))}
@@ -441,7 +421,29 @@ const Footer = () => {
   );
 };
 
+// Substitua seus componentes PortfolioContent e App por estes
 const PortfolioContent = () => {
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    const handleChange = () => {
+      if (mediaQuery.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    };
+    
+    // Define o tema inicial
+    handleChange();
+    
+    // Ouve por mudanças na preferência do sistema
+    mediaQuery.addEventListener('change', handleChange);
+    
+    // Limpa o listener quando o componente é desmontado
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
   return (
     <div className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 antialiased selection:bg-cyan-300/70 selection:text-cyan-900 transition-colors duration-300">
       <Header />
@@ -460,9 +462,7 @@ const PortfolioContent = () => {
 export default function App() {
   return (
     <LanguageProvider>
-      <ThemeProvider>
-        <PortfolioContent />
-      </ThemeProvider>
+      <PortfolioContent />
     </LanguageProvider>
   )
 }
