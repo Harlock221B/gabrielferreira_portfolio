@@ -4,6 +4,7 @@ import { createContext, useState, useContext } from 'react';
 import roadcarsImg from '../assets/img/roadcars.png';
 import fonacaoImg from '../assets/img/fonacao.png';
 import aprenderviverImg from '../assets/img/aprenderviver.png';
+import adrianaImg from '../assets/img/site_adriana.png';
 
 const LanguageContext = createContext();
 
@@ -44,10 +45,10 @@ const content = {
     english_cert_link: "https://cert.efset.org/d6Pcpi",
     projects_title: "Featured Projects",
     projects: [
-      { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "A complete website for a custom vehicle sales company. Features user authentication (login, JWT token, registration), admin panel for car management, and appointment scheduling, all connected to a Firebase database.", topics: ["React", "Firebase", "Authentication"], imageUrl: roadcarsImg },
+      { id: 1, name: "Road Cars Consulting", url: "https://www.roadcars.com.br", description: "A complete website for a custom vehicle sales company. Features user authentication (login, JWT token, registration), an admin panel for car management, appointment scheduling, and an integrated AI Agent for smart interactions, all connected to a Firebase database.", topics: ["React", "Firebase", "AI Agent", "Authentication"], imageUrl: roadcarsImg },
       { id: 2, name: "Fonação", url: "https://fonacao.com.br", description: "Institutional website and e-commerce platform for a speech therapy company, featuring a dynamic product catalog built with Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
-      { id: 4, name: "Aprender para a Vida (NGO)", url: "https://aprender-para-a-vida.vercel.app", description: "A website developed with Django, HTML, and Bootstrap for a local NGO. I acted as a mentor for a group of Univesp students in developing a complete and functional site for an integration project.", topics: ["Django", "Bootstrap", "HTML5", "Mentorship"], imageUrl: aprenderviverImg },
-      { id: 3, name: "Zeróbito", url: "https://github.com/Harlock221B", description: "Full-stack development of a web platform to reduce workplace accidents. The backend API was built with Node.js and Express.js, and the frontend was constructed with React.js.", topics: ["React.js", "Node.js", "Express.js", "API"], imageUrl: null }
+      { id: 3, name: "Dra. Adriana - Psychoanalyst", url: "https://site-dr-adriana-catalani.vercel.app", description: "Custom institutional website for a clinical psychologist and psychoanalyst. Developed with a welcoming, modern design focused on patient conversion, user experience (UX), and easy appointment scheduling.", topics: ["React", "Tailwind CSS", "UI/UX", "Psychology"], imageUrl: adrianaImg },
+      { id: 4, name: "Aprender para a Vida (NGO)", url: "https://aprender-para-a-vida.vercel.app", description: "A website developed with Django, HTML, and Bootstrap for a local NGO. I acted as a mentor for a group of Univesp students in developing a complete and functional site for an integration project.", topics: ["Django", "Bootstrap", "HTML5", "Mentorship"], imageUrl: aprenderviverImg }
     ],
     education_title: "Education",
     education_history: [
@@ -93,10 +94,10 @@ const content = {
     english_cert_link: "https://cert.efset.org/d6Pcpi",
     projects_title: "Projetos em Destaque",
     projects: [
-      { id: 1, name: "Road Cars Consulting", url: "https://roadcarsconsulting.vercel.app", description: "Site completo para uma empresa de venda de veículos personalizados. Possui autenticação de usuário (login, token JWT, registro), painel de admin para gestão de carros e agendamentos, tudo conectado ao Firebase.", topics: ["React", "Firebase", "Autenticação"], imageUrl: roadcarsImg },
+      { id: 1, name: "Road Cars Consulting", url: "https://www.roadcars.com.br", description: "Site completo para uma empresa de venda de veículos personalizados. Possui autenticação de usuário (login, token JWT, registro), painel de admin para gestão de carros, agendamentos e um Agente de Inteligência Artificial integrado para interações inteligentes, tudo conectado ao Firebase.", topics: ["React", "Firebase", "Agente de IA", "Autenticação"], imageUrl: roadcarsImg },
       { id: 2, name: "Fonação", url: "https://fonacao.com.br", description: "Site institucional e plataforma de e-commerce para uma empresa de fonoaudiologia, com um catálogo de produtos dinâmico desenvolvido com Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
-      { id: 4, name: "ONG Aprender para a Vida", url: "https://aprender-para-a-vida.vercel.app", description: "Um site desenvolvido com Django, HTML e Bootstrap para uma ONG local, onde atuei como tutor para um grupo de estudantes da Univesp no desenvolvimento de um site completo e funcional para um projeto de integração.", topics: ["Django", "Bootstrap", "HTML5", "Tutoria"], imageUrl: aprenderviverImg },
-      { id: 3, name: "Zeróbito", url: "https://github.com/Harlock221B", description: "Desenvolvimento full-stack de uma plataforma para redução de acidentes de trabalho. O back-end foi desenvolvido como uma API com Node.js e Express, enquanto o front-end foi construído em React.js.", topics: ["React.js", "Node.js", "Express.js", "API"], imageUrl: null }
+      { id: 3, name: "Dra. Adriana - Psicanalista", url: "https://site-dr-adriana-catalani.vercel.app", description: "Desenvolvimento de site institucional personalizado para clínica de psicologia e psicanálise. Foco em um design acolhedor, experiência do usuário (UX), otimização para conversão de pacientes e facilidade de agendamento de consultas.", topics: ["React", "Tailwind CSS", "UI/UX", "Psicologia"], imageUrl: adrianaImg },
+      { id: 4, name: "ONG Aprender para a Vida", url: "https://aprender-para-a-vida.vercel.app", description: "Um site desenvolvido com Django, HTML e Bootstrap para uma ONG local, onde atuei como tutor para um grupo de estudantes da Univesp no desenvolvimento de um site completo e funcional para um projeto de integração.", topics: ["Django", "Bootstrap", "HTML5", "Tutoria"], imageUrl: aprenderviverImg }
     ],
     education_title: "Formação Acadêmica",
     education_history: [
@@ -108,12 +109,11 @@ const content = {
   }
 };
 
-
 export const LanguageProvider = ({ children }) => {
-    const [language, setLanguage] = useState('pt');
-    const toggleLanguage = () => { setLanguage(prev => prev === 'pt' ? 'en' : 'pt'); };
-    const value = { language, setLanguage: toggleLanguage, t: content[language] };
-    return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
+  const [language, setLanguage] = useState('pt');
+  const toggleLanguage = () => { setLanguage(prev => prev === 'pt' ? 'en' : 'pt'); };
+  const value = { language, setLanguage: toggleLanguage, t: content[language] };
+  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 };
 
 export const useLanguage = () => useContext(LanguageContext);

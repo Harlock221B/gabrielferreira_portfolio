@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
-
+import { ThemeProvider } from './contexts/ThemeContext'; // Importação do provedor de tema
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,21 +10,10 @@ import Career from './components/Career';
 import Footer from './components/Footer';
 
 const PortfolioContent = () => {
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    const handleChange = () => {
-      document.documentElement.classList.toggle('dark', mediaQuery.matches);
-    };
-    
-    handleChange();
-    mediaQuery.addEventListener('change', handleChange);
-    
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
+  // O useEffect antigo foi removido daqui! O ThemeContext gerencia o dark mode agora.
+  
   return (
-    <div className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 antialiased selection:bg-cyan-300/70 selection:text-cyan-900 transition-colors duration-300">
+    <div className="bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 min-h-screen antialiased selection:bg-cyan-300/70 selection:text-cyan-900 transition-colors duration-500">
       <Header />
       <main>
         <Hero />
@@ -40,8 +29,11 @@ const PortfolioContent = () => {
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <PortfolioContent />
-    </LanguageProvider>
-  )
+    // Agora sim! O ThemeProvider está abraçando toda a aplicação
+    <ThemeProvider>
+      <LanguageProvider>
+        <PortfolioContent />
+      </LanguageProvider>
+    </ThemeProvider>
+  );
 }
