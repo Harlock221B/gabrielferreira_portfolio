@@ -1,10 +1,11 @@
 import { createContext, useState, useContext } from 'react';
 
-// Importando as imagens que são usadas no conteúdo
+// Importando as imagens
 import roadcarsImg from '../assets/img/roadcars.png';
 import fonacaoImg from '../assets/img/fonacao.png';
 import aprenderviverImg from '../assets/img/aprenderviver.png';
 import adrianaImg from '../assets/img/site_adriana.png';
+import finviewImg from '../assets/img/finview.png';
 
 const LanguageContext = createContext();
 
@@ -45,10 +46,61 @@ const content = {
     english_cert_link: "https://cert.efset.org/d6Pcpi",
     projects_title: "Featured Projects",
     projects: [
-      { id: 1, name: "Road Cars Consulting", url: "https://www.roadcars.com.br", description: "A complete website for a custom vehicle sales company. Features user authentication (login, JWT token, registration), an admin panel for car management, appointment scheduling, and an integrated AI Agent for smart interactions, all connected to a Firebase database.", topics: ["React", "Firebase", "AI Agent", "Authentication"], imageUrl: roadcarsImg },
-      { id: 2, name: "Fonação", url: "https://fonacao.com.br", description: "Institutional website and e-commerce platform for a speech therapy company, featuring a dynamic product catalog built with Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
-      { id: 3, name: "Dra. Adriana - Psychoanalyst", url: "https://site-dr-adriana-catalani.vercel.app", description: "Custom institutional website for a clinical psychologist and psychoanalyst. Developed with a welcoming, modern design focused on patient conversion, user experience (UX), and easy appointment scheduling.", topics: ["React", "Tailwind CSS", "UI/UX", "Psychology"], imageUrl: adrianaImg },
-      { id: 4, name: "Aprender para a Vida (NGO)", url: "https://aprender-para-a-vida.vercel.app", description: "A website developed with Django, HTML, and Bootstrap for a local NGO. I acted as a mentor for a group of Univesp students in developing a complete and functional site for an integration project.", topics: ["Django", "Bootstrap", "HTML5", "Mentorship"], imageUrl: aprenderviverImg }
+      { 
+        id: "roadcars", 
+        name: "Road Cars Consulting", 
+        url: "https://www.roadcars.com.br", 
+        description: "A complete website for a custom vehicle sales company. Features user authentication, an admin panel, and an integrated AI Agent.", 
+        topics: ["React", "Firebase", "AI Agent", "Authentication"], 
+        imageUrl: roadcarsImg,
+        challenge: "The client needed a platform that not only showcased high-end custom vehicles but also provided a secure administrative panel for inventory management and automated initial customer service for lead qualification.",
+        solution: "I developed a full-stack application using React for the front-end and Firebase for the back-end. I implemented JWT token authentication to protect admin routes. The standout feature is the integration of an Artificial Intelligence Agent to answer FAQs and capture leads 24/7.",
+        features: ["Private Admin Dashboard", "Secure Authentication (Login/Register)", "AI Agent Chatbot", "Real-time Database Integration"]
+      },
+      { 
+        id: "fonacao", 
+        name: "Fonação", 
+        url: "https://fonacao.com.br", 
+        description: "Institutional website and e-commerce platform for a speech therapy company, featuring a dynamic product catalog.", 
+        topics: ["Django", "HTML5", "CSS3", "Bootstrap"], 
+        imageUrl: fonacaoImg,
+        challenge: "A speech therapy clinic required a solid digital presence that could also function as an e-commerce platform to sell specialized therapeutic products.",
+        solution: "Built a robust web application using the Python Django framework to manage the dynamic product catalog and administrative tasks, leveraging Bootstrap to ensure a responsive, accessible, and clean user interface.",
+        features: ["Dynamic Product Catalog", "E-commerce Capabilities", "Responsive UI", "Content Management System (CMS)"]
+      },
+      { 
+        id: "adriana", 
+        name: "Dra. Adriana - Psychoanalyst", 
+        url: "https://site-dr-adriana-catalani.vercel.app", 
+        description: "Custom institutional website for a clinical psychologist focused on patient conversion and user experience.", 
+        topics: ["React", "Tailwind CSS", "UI/UX", "Psychology"], 
+        imageUrl: adrianaImg,
+        challenge: "The client needed a welcoming and highly professional digital environment to increase patient conversion rates and simplify the appointment scheduling process.",
+        solution: "Crafted a modern, SEO-optimized landing page using React and Tailwind CSS. The design strategy focused heavily on UX/UI principles—using calming colors and clear typography—to convey trust, empathy, and facilitate direct contact.",
+        features: ["Conversion-Optimized UX", "Modern UI with Tailwind CSS", "Mobile-First Design", "Direct WhatsApp Scheduling"]
+      },
+      { 
+        id: "ong", 
+        name: "Aprender para a Vida (NGO)", 
+        url: "https://aprender-para-a-vida.vercel.app", 
+        description: "A website developed for a local NGO. I acted as a mentor for university students during its creation.", 
+        topics: ["Django", "Bootstrap", "HTML5", "Mentorship"], 
+        imageUrl: aprenderviverImg,
+        challenge: "A local NGO needed a functional website to expand its reach and communicate its mission, but lacked the technical resources to build it.",
+        solution: "I took on a mentorship role, guiding a group of Univesp students to develop a complete application using Django and Bootstrap. I helped them structure the project, implement best practices, and deliver a fully functional integration project.",
+        features: ["Institutional Pages", "Responsive Layout", "Technical Mentorship Leadership", "Django Backend Architecture"]
+      },
+      { 
+        id: "finview", 
+        name: "Finview", 
+        url: "https://fin-view-lyart.vercel.app", 
+        description: "Financial management and visualization platform designed to offer an intuitive interface for tracking data.", 
+        topics: ["React", "Finance", "Web Development"], 
+        imageUrl: finviewImg,
+        challenge: "Users often struggle to track personal or business finances without a unified, clean, and intuitive visual dashboard.",
+        solution: "Developed a sleek financial dashboard using React, focusing on data visualization and a clean user interface. The goal was to make financial tracking accessible, visually appealing, and insightful at a glance.",
+        features: ["Interactive Data Visualization", "Clean UI/UX", "Expense Tracking Interface", "Modern React Architecture"]
+      }
     ],
     education_title: "Education",
     education_history: [
@@ -94,10 +146,61 @@ const content = {
     english_cert_link: "https://cert.efset.org/d6Pcpi",
     projects_title: "Projetos em Destaque",
     projects: [
-      { id: 1, name: "Road Cars Consulting", url: "https://www.roadcars.com.br", description: "Site completo para uma empresa de venda de veículos personalizados. Possui autenticação de usuário (login, token JWT, registro), painel de admin para gestão de carros, agendamentos e um Agente de Inteligência Artificial integrado para interações inteligentes, tudo conectado ao Firebase.", topics: ["React", "Firebase", "Agente de IA", "Autenticação"], imageUrl: roadcarsImg },
-      { id: 2, name: "Fonação", url: "https://fonacao.com.br", description: "Site institucional e plataforma de e-commerce para uma empresa de fonoaudiologia, com um catálogo de produtos dinâmico desenvolvido com Django.", topics: ["Django", "HTML5", "CSS3", "Bootstrap"], imageUrl: fonacaoImg },
-      { id: 3, name: "Dra. Adriana - Psicanalista", url: "https://site-dr-adriana-catalani.vercel.app", description: "Desenvolvimento de site institucional personalizado para clínica de psicologia e psicanálise. Foco em um design acolhedor, experiência do usuário (UX), otimização para conversão de pacientes e facilidade de agendamento de consultas.", topics: ["React", "Tailwind CSS", "UI/UX", "Psicologia"], imageUrl: adrianaImg },
-      { id: 4, name: "ONG Aprender para a Vida", url: "https://aprender-para-a-vida.vercel.app", description: "Um site desenvolvido com Django, HTML e Bootstrap para uma ONG local, onde atuei como tutor para um grupo de estudantes da Univesp no desenvolvimento de um site completo e funcional para um projeto de integração.", topics: ["Django", "Bootstrap", "HTML5", "Tutoria"], imageUrl: aprenderviverImg }
+      { 
+        id: "roadcars", 
+        name: "Road Cars Consulting", 
+        url: "https://www.roadcars.com.br", 
+        description: "Site completo para uma empresa de venda de veículos personalizados. Possui autenticação de usuário, painel de admin e Agente de IA.", 
+        topics: ["React", "Firebase", "Agente de IA", "Autenticação"], 
+        imageUrl: roadcarsImg,
+        challenge: "O cliente precisava de uma plataforma que não apenas exibisse o catálogo de veículos de alto padrão, mas que também oferecesse um painel administrativo seguro para gestão de estoque e automatizasse o atendimento inicial para qualificação de leads.",
+        solution: "Desenvolvi uma aplicação full-stack utilizando React no front-end e Firebase no back-end. Implementei um sistema de autenticação via token JWT para proteger as rotas do administrador. O grande diferencial foi a integração de um Agente de Inteligência Artificial para responder dúvidas frequentes e captar contatos 24/7.",
+        features: ["Painel Administrativo Privado", "Autenticação Segura (Login/Registro)", "Chatbot com Agente de IA", "Banco de dados em tempo real"]
+      },
+      { 
+        id: "fonacao", 
+        name: "Fonação", 
+        url: "https://fonacao.com.br", 
+        description: "Site institucional e plataforma de e-commerce para uma empresa de fonoaudiologia, com um catálogo de produtos dinâmico.", 
+        topics: ["Django", "HTML5", "CSS3", "Bootstrap"], 
+        imageUrl: fonacaoImg,
+        challenge: "Uma clínica de fonoaudiologia exigia uma presença digital sólida que também funcionasse como uma plataforma de e-commerce para vender produtos terapêuticos especializados.",
+        solution: "Construí uma aplicação web robusta utilizando o framework Django (Python) para gerenciar o catálogo dinâmico de produtos e as tarefas administrativas, aproveitando o Bootstrap para garantir uma interface de usuário responsiva, acessível e limpa.",
+        features: ["Catálogo Dinâmico de Produtos", "Capacidades de E-commerce", "Interface Responsiva", "Sistema de Gestão de Conteúdo (CMS)"]
+      },
+      { 
+        id: "adriana", 
+        name: "Dra. Adriana - Psicanalista", 
+        url: "https://site-dr-adriana-catalani.vercel.app", 
+        description: "Site institucional personalizado para clínica de psicologia, focado em conversão de pacientes e experiência do usuário.", 
+        topics: ["React", "Tailwind CSS", "UI/UX", "Psicologia"], 
+        imageUrl: adrianaImg,
+        challenge: "A cliente precisava de um ambiente digital acolhedor e altamente profissional para aumentar as taxas de conversão de pacientes e simplificar o processo de agendamento de consultas.",
+        solution: "Criei uma landing page moderna e otimizada para SEO usando React e Tailwind CSS. A estratégia de design focou pesadamente em princípios de UX/UI — usando cores calmas e tipografia clara — para transmitir confiança, empatia e facilitar o contato direto.",
+        features: ["UX Otimizada para Conversão", "UI Moderna com Tailwind CSS", "Design Mobile-First", "Agendamento Direto via WhatsApp"]
+      },
+      { 
+        id: "ong", 
+        name: "ONG Aprender para a Vida", 
+        url: "https://aprender-para-a-vida.vercel.app", 
+        description: "Site desenvolvido para uma ONG local, onde atuei como tutor para um grupo de estudantes da Univesp.", 
+        topics: ["Django", "Bootstrap", "HTML5", "Tutoria"], 
+        imageUrl: aprenderviverImg,
+        challenge: "Uma ONG local precisava de um site funcional para expandir seu alcance e comunicar sua missão, mas carecia de recursos técnicos para construí-lo.",
+        solution: "Assumi um papel de mentoria, guiando um grupo de alunos da Univesp no desenvolvimento de uma aplicação completa usando Django e Bootstrap. Ajudei-os a estruturar o projeto, implementar melhores práticas e entregar um projeto de integração totalmente funcional.",
+        features: ["Páginas Institucionais", "Layout Responsivo", "Liderança em Mentoria Técnica", "Arquitetura Back-end em Django"]
+      },
+      { 
+        id: "finview", 
+        name: "Finview", 
+        url: "https://fin-view-lyart.vercel.app", 
+        description: "Plataforma de gestão e visualização financeira desenvolvida para oferecer uma interface intuitiva no acompanhamento de dados.", 
+        topics: ["React", "Finanças", "Desenvolvimento Web"], 
+        imageUrl: finviewImg,
+        challenge: "Usuários frequentemente têm dificuldade em acompanhar finanças pessoais ou empresariais sem um painel visual unificado, limpo e intuitivo.",
+        solution: "Desenvolvi um dashboard financeiro elegante usando React, focando na visualização de dados e em uma interface de usuário limpa. O objetivo foi tornar o acompanhamento financeiro acessível, visualmente atraente e fácil de entender rapidamente.",
+        features: ["Visualização Interativa de Dados", "UI/UX Limpa e Moderna", "Interface de Controle de Despesas", "Arquitetura Moderna em React"]
+      }
     ],
     education_title: "Formação Acadêmica",
     education_history: [
@@ -116,4 +219,4 @@ export const LanguageProvider = ({ children }) => {
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 };
 
-export const useLanguage = () => useContext(LanguageContext);
+export const useLanguage = () => useContext(LanguageContext)

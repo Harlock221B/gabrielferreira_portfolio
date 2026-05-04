@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // <-- IMPORT DO ROUTER ADICIONADO
 import { useLanguage } from '../contexts/LanguageContext';
 import AnimatedComponent from './AnimatedComponent';
 import { ExternalLinkIcon } from './icons';
 
 const Projects = () => {
-  const { t } = useLanguage();
+  // Extraindo o 'language' também para traduzir o texto do botão
+  const { t, language } = useLanguage();
   
   return (
     <section id="projects" className="py-24 relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
@@ -66,17 +68,32 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-
-                  <div className="mt-10 pt-6 border-t border-slate-100 dark:border-slate-800/80">
-                    <a 
-                      href={repo.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                  
+                  {/* BOTOES DE AÇÃO ATUALIZADOS */}
+                  <div className="mt-10 pt-6 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                    
+                    {/* Botão para a página de detalhes (React Router) */}
+                    <Link 
+                      to={`/projeto/${repo.id}`} 
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm md:text-base hover:bg-cyan-600 dark:hover:bg-cyan-400 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 w-fit"
                     >
-                      Acessar Projeto
-                      <ExternalLinkIcon c="h-5 w-5" />
-                    </a>
+                      {language === 'pt' ? 'Ver Estudo de Caso' : 'View Case Study'}
+                      <span className="text-lg leading-none">&rarr;</span>
+                    </Link>
+
+                    {/* Ícone de link externo (Opcional, para quem quiser ir direto pro site) */}
+                    {repo.url && (
+                      <a 
+                        href={repo.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors p-2"
+                        title={language === 'pt' ? 'Acessar site ao vivo' : 'Visit live website'}
+                      >
+                        <ExternalLinkIcon c="h-6 w-6" />
+                      </a>
+                    )}
+                    
                   </div>
                 </div>
 
