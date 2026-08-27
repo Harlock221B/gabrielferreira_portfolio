@@ -64,13 +64,15 @@ export default function ProjectDetails() {
         </header>
 
         {/* Imagem de Destaque */}
-        <div className="w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-cyan-500/10 dark:shadow-cyan-900/20 mb-16 border border-slate-200 dark:border-slate-800">
-          <img 
-            src={project.imageUrl} 
-            alt={project.name} 
-            className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" 
-          />
-        </div>
+        {project.imageUrl && (
+          <div className="w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-cyan-500/10 dark:shadow-cyan-900/20 mb-16 border border-slate-200 dark:border-slate-800">
+            <img 
+              src={project.imageUrl} 
+              alt={project.name} 
+              className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" 
+            />
+          </div>
+        )}
 
         {/* Grade de Conteúdo */}
         <div className="grid md:grid-cols-3 gap-12">
@@ -116,15 +118,17 @@ export default function ProjectDetails() {
               </ul>
             </div>
 
-            <a 
-              href={project.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-cyan-500/40 hover:-translate-y-1"
-            >
-              {language === 'pt' ? 'Visitar Projeto' : 'Visit Live Project'}
-              <ExternalLinkIcon c="w-5 h-5" />
-            </a>
+            {project.url && (
+              <a 
+                href={project.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-cyan-500/40 hover:-translate-y-1"
+              >
+                {language === 'pt' ? 'Visitar Projeto' : 'Visit Live Project'}
+                <ExternalLinkIcon c="w-5 h-5" />
+              </a>
+            )}
           </div>
 
         </div>

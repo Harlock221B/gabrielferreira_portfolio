@@ -6,6 +6,8 @@ import fonacaoImg from '../assets/img/fonacao.png';
 import aprenderviverImg from '../assets/img/aprenderviver.png';
 import adrianaImg from '../assets/img/site_adriana.png';
 import finviewImg from '../assets/img/finview.png';
+import worldCupGameImg from '../assets/img/world_cup_game.png';
+import autohubImg from '../assets/img/autohub.png';
 
 const LanguageContext = createContext();
 
@@ -46,6 +48,28 @@ const content = {
     english_cert_link: "https://cert.efset.org/d6Pcpi",
     projects_title: "Featured Projects",
     projects: [
+      { 
+        id: "draft-selecoes", 
+        name: "World Cup Game", 
+        url: "https://world-cup-game-steel.vercel.app", 
+        description: "Interactive real-time multiplayer application for managing national football teams, lineups, and tactics.", 
+        topics: ["Next.js", "TypeScript", "Firebase", "Tailwind CSS"], 
+        imageUrl: worldCupGameImg,
+        challenge: "Creating an engaging, real-time multiplayer environment where users can collaboratively set up football tactics and lineups in synchronized lobbies.",
+        solution: "Utilized Next.js and Firebase Realtime Database to build a responsive, interactive field interface that synchronizes user actions instantly across multiple clients.",
+        features: ["Real-time Multiplayer Lobbies", "Interactive Tactics Board", "Team Management", "Live Synchronization"]
+      },
+      { 
+        id: "autohub", 
+        name: "AutoHub", 
+        url: "https://autohub-mauve.vercel.app", 
+        description: "Vehicle management platform built with React and Vite, featuring user authentication and administrative dashboards.", 
+        topics: ["React", "Vite", "Firebase", "Tailwind CSS"], 
+        imageUrl: autohubImg,
+        challenge: "The need for a streamlined system to manage vehicle inventory, track history, and provide a secure administrative environment.",
+        solution: "Built a fast Single Page Application (SPA) with React e Vite, integrated with Firebase for seamless authentication and data handling.",
+        features: ["Authentication System", "Vehicle Management Dashboard", "History Tracking", "Responsive UI"]
+      },
       { 
         id: "roadcars", 
         name: "Road Cars Consulting", 
@@ -146,6 +170,28 @@ const content = {
     english_cert_link: "https://cert.efset.org/d6Pcpi",
     projects_title: "Projetos em Destaque",
     projects: [
+      { 
+        id: "draft-selecoes", 
+        name: "World Cup Game", 
+        url: "https://world-cup-game-steel.vercel.app", 
+        description: "Aplicação multiplayer interativa em tempo real para gestão de seleções de futebol, escalações e táticas.", 
+        topics: ["Next.js", "TypeScript", "Firebase", "Tailwind CSS"], 
+        imageUrl: worldCupGameImg,
+        challenge: "Criar um ambiente multiplayer em tempo real e envolvente onde os usuários pudessem configurar colaborativamente táticas e escalações de futebol em lobbies sincronizados.",
+        solution: "Utilizei Next.js e Firebase Realtime Database para construir uma interface de campo interativa e responsiva que sincroniza instantaneamente as ações dos usuários entre múltiplos clientes.",
+        features: ["Lobbies Multiplayer em Tempo Real", "Quadro Tático Interativo", "Gestão de Seleções", "Sincronização Ao Vivo"]
+      },
+      { 
+        id: "autohub", 
+        name: "AutoHub", 
+        url: "https://autohub-mauve.vercel.app", 
+        description: "Plataforma de gestão de veículos desenvolvida com React e Vite, com autenticação de usuários e dashboards administrativos.", 
+        topics: ["React", "Vite", "Firebase", "Tailwind CSS"], 
+        imageUrl: autohubImg,
+        challenge: "A necessidade de um sistema simplificado para gerenciar o inventário de veículos, rastrear histórico e fornecer um ambiente administrativo seguro.",
+        solution: "Desenvolvi uma Single Page Application (SPA) rápida com React e Vite, integrada ao Firebase para autenticação e manipulação de dados de forma contínua.",
+        features: ["Sistema de Autenticação", "Dashboard de Gestão de Veículos", "Rastreamento de Histórico", "Interface Responsiva"]
+      },
       { 
         id: "roadcars", 
         name: "Road Cars Consulting", 
