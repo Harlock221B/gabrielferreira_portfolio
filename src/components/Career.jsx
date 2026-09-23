@@ -38,8 +38,8 @@ const Career = () => {
         <div className="relative space-y-12 sm:space-y-16">
           
           {/* Central Conduit Line */}
-          <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-[2px] bg-slate-200 dark:bg-slate-800 md:-translate-x-1/2">
-            <div className="sticky top-1/3 w-full h-40 bg-gradient-to-b from-cyan-500 to-blue-600 shadow-[0_0_12px_rgba(6,182,212,0.8)]"></div>
+          <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-7 sm:top-8 bottom-8 w-[2px] bg-slate-200 dark:bg-slate-800">
+            <div className="w-full h-full bg-gradient-to-b from-cyan-500 via-blue-500/40 to-slate-200 dark:to-slate-800 shadow-[0_0_10px_rgba(6,182,212,0.35)]"></div>
           </div>
 
           {t.experiences.map((exp, index) => {
@@ -47,27 +47,27 @@ const Career = () => {
             const isCurrent = exp.period.toLowerCase().includes('present') || exp.period.toLowerCase().includes('presente');
 
             return (
-              <AnimatedComponent key={index} delay={index * 120} className="relative z-10">
-                <div className={`flex flex-col md:flex-row items-start md:items-center w-full ${isEven ? 'md:flex-row-reverse' : ''}`}>
+              <AnimatedComponent key={index} delay={index * 120} className="relative z-10 group">
+                <div className={`flex flex-col md:flex-row items-start w-full ${isEven ? 'md:flex-row-reverse' : ''}`}>
                   
                   {/* Opposite desktop spacer */}
                   <div className="hidden md:block w-1/2"></div>
 
                   {/* Central Node */}
-                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white dark:bg-[#070b14] border-2 border-slate-300 dark:border-slate-700 flex items-center justify-center transition-all duration-300 shadow-md">
+                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-7 sm:top-8 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white dark:bg-[#070b14] border-2 border-slate-300 dark:border-slate-700 group-hover:border-cyan-500 dark:group-hover:border-cyan-400 flex items-center justify-center transition-all duration-300 shadow-md z-10">
                     {isCurrent ? (
                       <div className="relative flex items-center justify-center">
                         <span className="w-4 h-4 rounded-full bg-cyan-500 animate-ping opacity-75"></span>
                         <span className="absolute w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_8px_#06b6d4]"></span>
                       </div>
                     ) : (
-                      <div className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-600"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-600 group-hover:bg-cyan-400 group-hover:shadow-[0_0_8px_rgba(6,182,212,0.8)] transition-all"></div>
                     )}
                   </div>
 
                   {/* Content Card */}
                   <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
-                    <div className="group relative p-6 sm:p-8 rounded-3xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800/80 hover:border-cyan-500/50 dark:hover:border-cyan-500/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-1">
+                    <div className="relative p-6 sm:p-8 rounded-3xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800/80 hover:border-cyan-500/50 dark:hover:border-cyan-500/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-1">
                       
                       {/* Top Meta Bar */}
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-3">

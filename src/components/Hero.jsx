@@ -7,6 +7,7 @@ import { GithubIcon, LinkedinIcon, MailIcon } from './icons';
 
 const Hero = () => {
   const { language, t } = useLanguage();
+  const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [activeTab, setActiveTab] = useState('data');
@@ -14,24 +15,31 @@ const Hero = () => {
   const cvFile = language === 'pt' ? './Gabriel_Ferreira_CV-PT-BR.pdf' : './Gabriel_Ferreira_CV-EN.pdf';
   const cvText = language === 'pt' ? 'Baixar Currículo' : 'Download CV';
 
-  // Typewriter effect
+  const roles = t.hero_roles || [t.hero_subtitle];
+
+  // Dynamic Multi-Role Typewriter
   useEffect(() => {
-    const text = t.hero_subtitle;
-    const typingSpeed = isDeleting ? 40 : 80;
-    const delay = isDeleting && displayText === '' ? 400 : (!isDeleting && displayText === text ? 2200 : typingSpeed);
+    const currentText = roles[roleIndex % roles.length];
+    const typingSpeed = isDeleting ? 30 : 65;
+    const delay = isDeleting && displayText === '' 
+      ? 350 
+      : (!isDeleting && displayText === currentText ? 2200 : typingSpeed);
 
     const timeout = setTimeout(() => {
-      if (!isDeleting && displayText !== text) {
-        setDisplayText(text.substring(0, displayText.length + 1));
+      if (!isDeleting && displayText !== currentText) {
+        setDisplayText(currentText.substring(0, displayText.length + 1));
       } else if (isDeleting && displayText !== '') {
-        setDisplayText(text.substring(0, displayText.length - 1));
-      } else {
-        setIsDeleting(!isDeleting);
+        setDisplayText(currentText.substring(0, displayText.length - 1));
+      } else if (!isDeleting && displayText === currentText) {
+        setIsDeleting(true);
+      } else if (isDeleting && displayText === '') {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
       }
     }, delay);
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, t.hero_subtitle]);
+  }, [displayText, isDeleting, roleIndex, roles]);
 
   return (
     <section id="home" className="relative min-h-screen pt-28 pb-16 md:py-36 flex items-center overflow-hidden bg-slate-50 dark:bg-[#070b14] transition-colors duration-500 scroll-mt-28">
@@ -105,15 +113,19 @@ const Hero = () => {
                   {t.hero_title_suffix}
                 </span>
               </h1>
+              
+              <h2 className="text-lg sm:text-2xl font-bold text-slate-700 dark:text-slate-200 mt-4 tracking-tight">
+                {t.hero_subtitle}
+              </h2>
             </AnimatedComponent>
 
-            {/* Dynamic Typewriter Subtitle */}
+            {/* Dynamic Typewriter Command */}
             <AnimatedComponent delay={150}>
-              <div className="mt-5 min-h-[38px] flex items-center justify-center lg:justify-start">
-                <div className="font-mono text-base sm:text-xl font-semibold text-slate-700 dark:text-cyan-300/90 flex items-center">
-                  <span className="text-cyan-500 mr-2">&gt;</span>
+              <div className="mt-3 min-h-[34px] flex items-center justify-center lg:justify-start">
+                <div className="font-mono text-sm sm:text-base font-semibold text-cyan-600 dark:text-cyan-400 flex items-center">
+                  <span className="text-cyan-500 mr-2 font-bold">&gt;</span>
                   <span>{displayText}</span>
-                  <span className="inline-block w-2.5 h-5 bg-cyan-500 ml-1.5 animate-pulse"></span>
+                  <span className="inline-block w-2.5 h-4 bg-cyan-500 ml-1.5 animate-pulse"></span>
                 </div>
               </div>
             </AnimatedComponent>
@@ -150,57 +162,64 @@ const Hero = () => {
               </div>
             </AnimatedComponent>
 
-            {/* CTAs & Socials */}
+            {/* CTAs & Socials with Protected Dock Layout */}
             <AnimatedComponent delay={300}>
-              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                <a 
-                  href="#projects" 
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-mono font-bold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 active:scale-95 transition-all"
-                >
-                  <span>{t.hero_explore_btn}</span>
-                  <ArrowRight size={16} />
-                </a>
+              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
+                
+                {/* Primary Action Buttons */}
+                <div className="flex items-center gap-3">
+                  <a 
+                    href="#projects" 
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-mono font-bold text-xs sm:text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 active:scale-95 transition-all"
+                  >
+                    <span>{t.hero_explore_btn}</span>
+                    <ArrowRight size={16} />
+                  </a>
 
-                <a 
-                  href={cvFile} 
-                  download
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-mono font-bold text-sm hover:border-cyan-500 dark:hover:border-cyan-500 hover:-translate-y-0.5 active:scale-95 transition-all shadow-sm"
-                >
-                  <FileText size={16} className="text-cyan-500" />
-                  <span>{cvText}</span>
-                </a>
+                  <a 
+                    href={cvFile} 
+                    download
+                    className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-mono font-bold text-xs sm:text-sm hover:border-cyan-500 dark:hover:border-cyan-500 hover:-translate-y-0.5 active:scale-95 transition-all shadow-sm"
+                  >
+                    <FileText size={16} className="text-cyan-500" />
+                    <span>{cvText}</span>
+                  </a>
+                </div>
 
-                {/* Direct Mail */}
-                <a 
-                  href="mailto:gabrielferreira47b@gmail.com"
-                  className="p-3.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-500 active:scale-95 transition-all shadow-sm"
-                  title="Enviar Email"
-                  aria-label="Email"
-                >
-                  <MailIcon c="w-4 h-4" />
-                </a>
+                {/* Social Dock (Consolidated so LinkedIn NEVER gets orphaned!) */}
+                <div className="flex items-center gap-1 p-1 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm shrink-0">
+                  <a 
+                    href="mailto:gabrielferreira47b@gmail.com"
+                    className="p-2.5 rounded-full text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
+                    title="Enviar Email"
+                    aria-label="Email"
+                  >
+                    <MailIcon c="w-4 h-4" />
+                  </a>
 
-                <a 
-                  href="https://github.com/Harlock221B" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-3.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-500 active:scale-95 transition-all shadow-sm"
-                  title="GitHub Profile"
-                  aria-label="GitHub"
-                >
-                  <GithubIcon c="w-4 h-4" />
-                </a>
+                  <a 
+                    href="https://github.com/Harlock221B" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2.5 rounded-full text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
+                    title="GitHub Profile"
+                    aria-label="GitHub"
+                  >
+                    <GithubIcon c="w-4 h-4" />
+                  </a>
 
-                <a 
-                  href="https://www.linkedin.com/in/gabriel-ferreira-souza/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-3.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-500 active:scale-95 transition-all shadow-sm"
-                  title="LinkedIn Profile"
-                  aria-label="LinkedIn"
-                >
-                  <LinkedinIcon c="w-4 h-4" />
-                </a>
+                  <a 
+                    href="https://www.linkedin.com/in/gabriel-ferreira-souza/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2.5 rounded-full text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
+                    title="LinkedIn Profile"
+                    aria-label="LinkedIn"
+                  >
+                    <LinkedinIcon c="w-4 h-4" />
+                  </a>
+                </div>
+
               </div>
             </AnimatedComponent>
           </div>
