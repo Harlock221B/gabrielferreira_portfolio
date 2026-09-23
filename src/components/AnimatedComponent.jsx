@@ -5,6 +5,7 @@ const AnimatedComponent = ({ children, delay = 0, className = "" }) => {
   const domRef = useRef();
 
   useEffect(() => {
+    const currentElement = domRef.current;
     // Configura o observador para detectar quando o elemento entra na tela
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -14,17 +15,17 @@ const AnimatedComponent = ({ children, delay = 0, className = "" }) => {
             setIsVisible(true);
           }, delay);
           // Uma vez visível, para de observar (não repete a animação se rolar pra cima)
-          observer.unobserve(entry.target);
+          if (currentElement) observer.unobserve(currentElement);
         }
       });
     }, { rootMargin: '0px 0px -50px 0px' }); // Dispara um pouquinho antes de aparecer 100%
 
-    if (domRef.current) {
-      observer.observe(domRef.current);
+    if (currentElement) {
+      observer.observe(currentElement);
     }
 
     return () => {
-      if (domRef.current) observer.unobserve(domRef.current);
+      if (currentElement) observer.unobserve(currentElement);
     };
   }, [delay]);
 

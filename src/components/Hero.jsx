@@ -2,21 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import AnimatedComponent from './AnimatedComponent';
 import profileImageUrl from '../assets/img/profile.png';
-import { FileText } from 'lucide-react';
+import { FileText, ArrowRight, MapPin } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, MailIcon } from './icons';
 
 const Hero = () => {
   const { language, t } = useLanguage();
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const [activeTab, setActiveTab] = useState('data');
   
-  // Lógica para o Currículo com os nomes corretos
   const cvFile = language === 'pt' ? './Gabriel_Ferreira_CV-PT-BR.pdf' : './Gabriel_Ferreira_CV-EN.pdf';
-  const cvText = language === 'pt' ? 'Baixar Currículo' : 'Download Resume';
+  const cvText = language === 'pt' ? 'Baixar Currículo' : 'Download CV';
 
+  // Typewriter effect
   useEffect(() => {
     const text = t.hero_subtitle;
-    const typingSpeed = isDeleting ? 50 : 100;
-    const delay = isDeleting && displayText === '' ? 500 : (!isDeleting && displayText === text ? 2000 : typingSpeed);
+    const typingSpeed = isDeleting ? 40 : 80;
+    const delay = isDeleting && displayText === '' ? 400 : (!isDeleting && displayText === text ? 2200 : typingSpeed);
 
     const timeout = setTimeout(() => {
       if (!isDeleting && displayText !== text) {
@@ -32,63 +34,267 @@ const Hero = () => {
   }, [displayText, isDeleting, t.hero_subtitle]);
 
   return (
-    <section id="about" className="relative overflow-hidden bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white min-h-screen flex items-center">
+    <section id="home" className="relative min-h-screen pt-28 pb-16 md:py-36 flex items-center overflow-hidden bg-slate-50 dark:bg-[#070b14] transition-colors duration-500 scroll-mt-28">
       
-      {/* Background Animado */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-[20%] -right-[10%] w-[60%] h-[60%] rounded-full bg-cyan-400/20 dark:bg-cyan-900/30 blur-[120px] animate-pulse" style={{ animationDuration: '4s' }} />
-        <div className="absolute top-[40%] -left-[10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 dark:bg-blue-900/30 blur-[120px] animate-pulse" style={{ animationDuration: '6s' }} />
-      </div>
+      {/* Background Systematic Grids and Beams */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-60 dark:opacity-20 pointer-events-none" />
+      <div 
+        className="absolute inset-0 pointer-events-none" 
+        style={{
+          background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(6, 182, 212, 0.15), transparent 70%)'
+        }} 
+      />
 
-      <div className="relative container mx-auto max-w-5xl px-4 py-24 flex flex-col items-center text-center z-10">
+      {/* Decorative Glow Orbs */}
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-500/10 dark:bg-cyan-500/15 rounded-full blur-[128px] pointer-events-none" />
+      <div className="absolute bottom-10 -right-32 w-96 h-96 bg-blue-600/10 dark:bg-blue-600/15 rounded-full blur-[128px] pointer-events-none" />
+
+      {/* Corner Crosshair Accents */}
+      <div className="hidden lg:block absolute top-28 left-8 font-mono text-xs text-slate-300 dark:text-slate-800 select-none">+ SYS.LAT_23.5505_LNG_46.6333</div>
+      <div className="hidden lg:block absolute top-28 right-8 font-mono text-xs text-slate-300 dark:text-slate-800 select-none">+ NODE_PORTFOLIO_V2.5</div>
+
+      <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
+        
+        {/* Top Telemetry HUD */}
         <AnimatedComponent>
-          <div className="group relative p-1 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 shadow-2xl shadow-cyan-500/30 mb-8 transition-transform duration-500 hover:scale-105">
-            <div className="absolute inset-0 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-500"></div>
-            <img 
-              src={profileImageUrl} 
-              alt="Gabriel Ferreira" 
-              className="relative w-44 h-44 md:w-52 md:h-52 rounded-full object-cover border-4 border-white dark:border-slate-900" 
-            />
-          </div>
-        </AnimatedComponent>
-        
-        <AnimatedComponent delay={100}>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300">
-            Gabriel Ferreira
-          </h1>
-          <h2 className="mt-6 text-2xl md:text-3xl font-medium text-cyan-600 dark:text-cyan-400 h-10 flex items-center justify-center">
-            {displayText}
-            <span className="w-1 h-8 bg-cyan-500 ml-1 animate-ping"></span>
-          </h2>
-        </AnimatedComponent>
-        
-        <AnimatedComponent delay={200}>
-          <p className="mt-8 max-w-2xl mx-auto text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
-            {t.hero_description}
-          </p>
-        </AnimatedComponent>
-        
-        <AnimatedComponent delay={300}>
-          <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 justify-center">
-            {/* Botão de Contacto */}
-            <a 
-              href="mailto:gabrielferreira47b@gmail.com" 
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-slate-900 dark:bg-white px-10 py-4 text-lg font-bold text-white dark:text-slate-900 hover:bg-cyan-600 dark:hover:bg-cyan-500 hover:text-white transition-all shadow-xl hover:-translate-y-1 active:scale-95"
-            >
-              {t.nav_contact}
-            </a>
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">ONLINE</span>
+              <span className="text-slate-300 dark:text-slate-700">|</span>
+              <span>{t.system_status}</span>
+            </div>
 
-            {/* Botão de Currículo Dinâmico */}
-            <a 
-              href={cvFile} 
-              download
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-white dark:bg-slate-800 px-10 py-4 text-lg font-bold text-slate-900 dark:text-white border-2 border-slate-100 dark:border-slate-800 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all hover:-translate-y-1 active:scale-95 shadow-sm"
-            >
-              <FileText size={20} className="text-cyan-500" />
-              {cvText}
-            </a>
+            <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400">
+              <MapPin size={12} className="text-cyan-500" />
+              <span>{t.system_location}</span>
+            </div>
           </div>
         </AnimatedComponent>
+
+        {/* Main Hero Split Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          {/* Left Column: Core Info & Typography (7 cols) */}
+          <div className="lg:col-span-7 text-center lg:text-left">
+            <AnimatedComponent delay={50}>
+              <div className="inline-flex items-center gap-3 mb-4">
+                <div className="relative">
+                  <img 
+                    src={profileImageUrl} 
+                    alt="Gabriel Ferreira" 
+                    className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-2 border-cyan-500 shadow-lg shadow-cyan-500/20"
+                  />
+                  <span className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white dark:border-[#070b14]"></span>
+                </div>
+                <div className="text-left">
+                  <span className="text-xs font-mono uppercase tracking-widest text-cyan-600 dark:text-cyan-400 block font-bold">
+                    Gabriel Ferreira Souza
+                  </span>
+                  <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                    {t.hero_badge_role}
+                  </span>
+                </div>
+              </div>
+            </AnimatedComponent>
+
+            <AnimatedComponent delay={100}>
+              <h1 className="text-4xl sm:text-6xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.08] mt-2">
+                {t.hero_title_prefix} <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500">
+                  {t.hero_title_suffix}
+                </span>
+              </h1>
+            </AnimatedComponent>
+
+            {/* Dynamic Typewriter Subtitle */}
+            <AnimatedComponent delay={150}>
+              <div className="mt-5 min-h-[38px] flex items-center justify-center lg:justify-start">
+                <div className="font-mono text-base sm:text-xl font-semibold text-slate-700 dark:text-cyan-300/90 flex items-center">
+                  <span className="text-cyan-500 mr-2">&gt;</span>
+                  <span>{displayText}</span>
+                  <span className="inline-block w-2.5 h-5 bg-cyan-500 ml-1.5 animate-pulse"></span>
+                </div>
+              </div>
+            </AnimatedComponent>
+
+            {/* Description */}
+            <AnimatedComponent delay={200}>
+              <p className="mt-5 text-base sm:text-lg text-slate-600 dark:text-slate-300/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                {t.hero_description}
+              </p>
+            </AnimatedComponent>
+
+            {/* Systematic Stats Badges */}
+            <AnimatedComponent delay={250}>
+              <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl mx-auto lg:mx-0">
+                <div className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
+                  <div className="text-xl font-black text-cyan-500 font-mono">5+</div>
+                  <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_experience}</div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
+                  <div className="text-xl font-black text-blue-500 font-mono">AWS</div>
+                  <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_aws}</div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
+                  <div className="text-xl font-black text-indigo-500 font-mono">C1</div>
+                  <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_english}</div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
+                  <div className="text-xl font-black text-emerald-500 font-mono">7+</div>
+                  <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_projects}</div>
+                </div>
+              </div>
+            </AnimatedComponent>
+
+            {/* CTAs & Socials */}
+            <AnimatedComponent delay={300}>
+              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                <a 
+                  href="#projects" 
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-mono font-bold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 active:scale-95 transition-all"
+                >
+                  <span>{t.hero_explore_btn}</span>
+                  <ArrowRight size={16} />
+                </a>
+
+                <a 
+                  href={cvFile} 
+                  download
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-mono font-bold text-sm hover:border-cyan-500 dark:hover:border-cyan-500 hover:-translate-y-0.5 active:scale-95 transition-all shadow-sm"
+                >
+                  <FileText size={16} className="text-cyan-500" />
+                  <span>{cvText}</span>
+                </a>
+
+                {/* Direct Mail */}
+                <a 
+                  href="mailto:gabrielferreira47b@gmail.com"
+                  className="p-3.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-500 active:scale-95 transition-all shadow-sm"
+                  title="Enviar Email"
+                  aria-label="Email"
+                >
+                  <MailIcon c="w-4 h-4" />
+                </a>
+
+                <a 
+                  href="https://github.com/Harlock221B" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-500 active:scale-95 transition-all shadow-sm"
+                  title="GitHub Profile"
+                  aria-label="GitHub"
+                >
+                  <GithubIcon c="w-4 h-4" />
+                </a>
+
+                <a 
+                  href="https://www.linkedin.com/in/gabriel-ferreira-souza/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-500 active:scale-95 transition-all shadow-sm"
+                  title="LinkedIn Profile"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedinIcon c="w-4 h-4" />
+                </a>
+              </div>
+            </AnimatedComponent>
+          </div>
+
+          {/* Right Column: Interactive Code & Telemetry Window (5 cols) */}
+          <div className="lg:col-span-5">
+            <AnimatedComponent delay={200}>
+              <div className="rounded-2xl overflow-hidden bg-[#0d131f] border border-slate-800 shadow-2xl shadow-cyan-950/40 text-left font-mono">
+                
+                {/* Window Titlebar */}
+                <div className="px-4 py-3 bg-[#0a0e17] border-b border-slate-800 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                    <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                    <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+                    <span className="text-xs text-slate-400 font-mono ml-2">sys://gabriel.terminal</span>
+                  </div>
+
+                  <div className="flex items-center gap-1">
+                    <button
+                      onClick={() => setActiveTab('data')}
+                      className={`px-2.5 py-1 text-[11px] rounded transition-colors ${
+                        activeTab === 'data' 
+                          ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold' 
+                          : 'text-slate-500 hover:text-slate-300'
+                      }`}
+                    >
+                      Python/Data
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('frontend')}
+                      className={`px-2.5 py-1 text-[11px] rounded transition-colors ${
+                        activeTab === 'frontend' 
+                          ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold' 
+                          : 'text-slate-500 hover:text-slate-300'
+                      }`}
+                    >
+                      React/UI
+                    </button>
+                  </div>
+                </div>
+
+                {/* Code Window Body */}
+                <div className="p-5 text-xs text-slate-300 leading-relaxed overflow-x-auto min-h-[300px] flex flex-col justify-between">
+                  {activeTab === 'data' ? (
+                    <div>
+                      <div className="text-slate-500 mb-2">{t.terminal_pipeline_comment}</div>
+                      <div className="text-pink-400">import <span className="text-slate-200">pandas</span> as <span className="text-yellow-300">pd</span></div>
+                      <div className="text-pink-400">import <span className="text-slate-200">boto3</span>, <span className="text-slate-200">plotly.express</span> as <span className="text-yellow-300">px</span></div>
+                      <br />
+                      <div className="text-slate-400">@serverless_task(runtime=<span className="text-emerald-400">"AWS_Lambda"</span>)</div>
+                      <div><span className="text-blue-400 font-semibold">def</span> <span className="text-yellow-300">process_genomic_stream</span>(dataset_id):</div>
+                      <div className="pl-4 text-slate-300">df = pd.read_parquet(f<span className="text-emerald-400">"s3://einstein-data/{'{'}dataset_id{'}'}"</span>)</div>
+                      <div className="pl-4 text-slate-300">insights = df.pipe(nlp_clinical_analysis)</div>
+                      <div className="pl-4 text-pink-400">return <span className="text-slate-300">{'{'}</span></div>
+                      <div className="pl-8 text-cyan-300">"status": <span className="text-emerald-400">"SUCCESS"</span>,</div>
+                      <div className="pl-8 text-cyan-300">"records_processed": <span className="text-orange-400">1_420_800</span>,</div>
+                      <div className="pl-8 text-cyan-300">"accuracy": <span className="text-orange-400">0.994</span></div>
+                      <div className="pl-4 text-slate-300">{'}'}</div>
+                    </div>
+                  ) : (
+                    <div>
+                      <div className="text-slate-500 mb-2">{t.terminal_ui_comment}</div>
+                      <div className="text-pink-400">import <span className="text-slate-200">{'{'} useState, useEffect {'}'}</span> from <span className="text-emerald-400">'react'</span>;</div>
+                      <div className="text-pink-400">import <span className="text-slate-200">{'{'} motion {'}'}</span> from <span className="text-emerald-400">'framer-motion'</span>;</div>
+                      <br />
+                      <div><span className="text-blue-400 font-semibold">export const</span> <span className="text-yellow-300">InteractiveTelemetry</span> = () =&gt; {'{'}</div>
+                      <div className="pl-4 text-slate-300">const [metrics, setMetrics] = useState(liveStream);</div>
+                      <div className="pl-4 text-pink-400">return (</div>
+                      <div className="pl-8 text-cyan-400">&lt;<span className="text-pink-400">div</span> <span className="text-purple-400">className</span>=<span className="text-emerald-400">"grid grid-cols-2 gap-4"</span>&gt;</div>
+                      <div className="pl-12 text-slate-300">&lt;<span className="text-blue-300">RealtimeDataCard</span> telemetry={'{'}metrics{'}'} /&gt;</div>
+                      <div className="pl-12 text-slate-300">&lt;<span className="text-blue-300">StreamlitBridge</span> active={'{'}true{'}'} /&gt;</div>
+                      <div className="pl-8 text-cyan-400">&lt;/<span className="text-pink-400">div</span>&gt;</div>
+                      <div className="pl-4 text-pink-400">);</div>
+                      <div>{'}'};</div>
+                    </div>
+                  )}
+
+                  {/* Micro Telemetry Bar inside code window */}
+                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                      <span>{t.terminal_execution}</span>
+                    </div>
+                    <span className="text-slate-500">UTF-8 // LF // React 19 + Python 3.12</span>
+                  </div>
+                </div>
+
+              </div>
+            </AnimatedComponent>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );
