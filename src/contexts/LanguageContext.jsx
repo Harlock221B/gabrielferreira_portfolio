@@ -43,8 +43,10 @@ const content = {
     experiences: [
       { role: "Mid-Level Data Analyst", company: "Hospital Israelita Albert Einstein", period: "Feb 2025 - Present", achievements: ["Developed automations and dashboards focused on presenting laboratory data and natural language processing studies.", "Created data visualizations using Power BI, Streamlit, and Python libraries (Pandas, Plotly).", "Analyzed clinical and genomic data to support innovative research and projects.", "Collaborated with multidisciplinary teams (IT, Bioinformatics, Clinical) to deliver data-driven solutions."] },
       { role: "Data Analyst", company: "Hospital Israelita Albert Einstein", period: "Nov 2023 - Feb 2025", achievements: ["Architected and developed serverless integration solutions for bioinformatics systems using Python and AWS services (Lambda, API Gateway, DynamoDB).", "Implemented data integrators to connect analysis and laboratory systems, optimizing data workflows.", "Maintained and developed tools and orchestration systems in bioinformatics using Python and CDK."] },
-      { role: "Systems Development Intern", company: "CI&T", period: "Feb 2022 - Mar 2023", achievements: ["Developed responsive UI components for the 'BEES SOCIAL MEDIA' platform using React.js.", "Collaborated on a microservices-based architecture using Java and MongoDB.", "Actively participated in daily meetings and planning sessions with international teams, using English as the primary language of communication."] },
-      { role: "Systems Development Intern", company: "Robert Bosch Ltda", period: "Nov 2021 - Feb 2022", achievements: ["Implemented and maintained front-end features for a B2B e-commerce platform using AngularJS and React.", "Collaborated with multicultural teams on web projects, conducting all technical communication in English."] },
+      { role: "Full-Stack Developer (ZerObito / SP Government)", company: "State University of Campinas (UNICAMP)", period: "May 2023 - Dec 2023", achievements: ["Contributed to the ZerObito platform in partnership with the São Paulo State Government, aiming to prevent workplace fatalities.", "Developed responsive front-end components using React.js and back-end integration with Node.js.", "Handled relational database modeling and queries with MySQL.", "Applied UX Design principles to ensure accessibility, clarity, and intuitive navigation."] },
+      { role: "Systems Analyst (Intern)", company: "CI&T", period: "Feb 2022 - Feb 2023", achievements: ["Developed internal products with HTML5, SCSS, and Angular.", "Built responsive UI components for the 'BEES SOCIAL MEDIA' platform using React.js.", "Collaborated on microservices architecture using Java and MongoDB, applying Clean Code practices.", "Participated actively in daily agile meetings with international teams in English."] },
+      { role: "Systems Analyst (Intern)", company: "Robert Bosch Ltda", period: "Nov 2021 - Jan 2022", achievements: ["Implemented and maintained front-end features for a B2B e-commerce platform using AngularJS and Java.", "Collaborated with multicultural teams on web projects, conducting all technical communication in English."] },
+      { role: "Systems Development Apprentice", company: "Robert Bosch Ltda", period: "Mar 2021 - Nov 2021", achievements: ["Developed automation projects in VBA and Python for administrative workflows.", "Built RPA software bots using the Automation Anywhere platform.", "Supported and developed web initiatives with React.js and Django, handling databases including MySQL, MongoDB, Firebase, and Oracle."] },
       { role: "Project Manager (Entrepreneurship Program)", company: "Dell Technologies", period: "Mar 2019 - Dec 2019", achievements: ["Led the development of a startup from concept to MVP as part of a year-long high school entrepreneurship program.", "Pitched the final product to real investors and Dell managers, receiving positive feedback on market viability."] }
     ],
     english_cert_link: "https://cert.efset.org/d6Pcpi",
@@ -140,6 +142,17 @@ const content = {
         challenge: "An HVAC service provider needed a strong digital presence to generate leads, organize customer workflows, and eliminate manual, error-prone quote generation and technician appointment scheduling.",
         solution: "Built a modern, responsive web application and administrative management system using React 19, Tailwind CSS, and Firebase Firestore. Implemented direct PDF budget generation and automated synchronization with Google Calendar for field technician appointments.",
         features: ["Automated Quote PDF Generation", "Google Calendar Appointment Sync", "Client & Service Management CRM", "Secure Firebase Authentication", "Responsive Mobile-First Interface"]
+      },
+      { 
+        id: "zerobito", 
+        name: "ZerObito (Unicamp & SP Government)", 
+        url: "", 
+        description: "Platform developed in partnership between UNICAMP and the São Paulo State Government aimed at reducing workplace fatalities through technology and UX.", 
+        topics: ["React", "Node.js", "MySQL", "UX Design", "Social Impact"], 
+        imageUrl: null,
+        challenge: "Create an intuitive digital platform to raise awareness, deliver actionable occupational safety guidelines, and reduce workplace fatalities across São Paulo State.",
+        solution: "Engineered a responsive React front-end focused on accessible UX Design principles, backed by Node.js server routes and relational MySQL database handling.",
+        features: ["Responsive React Interface", "Node.js Backend & APIs", "MySQL Relational Database", "UX & Accessibility-Driven Design"]
       },
       { 
         id: "draft-selecoes", 
@@ -256,8 +269,10 @@ const content = {
     experiences: [
       { role: "Analista de Dados Pleno", company: "Hospital Israelita Albert Einstein", period: "Fev 2025 - Presente", achievements: ["Desenvolvimento de automações e dashboards com foco na apresentação de dados laboratoriais e estudos de processamento de linguagem natural.", "Criação de visualizações de dados utilizando Power BI, Streamlit e bibliotecas Python (Pandas, Plotly).", "Análise de dados clínicos e genômicos para apoiar pesquisas e projetos inovadores.", "Colaboração com equipes multidisciplinares (TI, Bioinformática, Clínicas) para entregar soluções baseadas em dados."] },
       { role: "Analista de Dados", company: "Hospital Israelita Albert Einstein", period: "Nov 2023 - Fev 2025", achievements: ["Arquitetura e desenvolvimento de soluções de integração serverless para sistemas de bioinformática utilizando Python e serviços AWS (Lambda, API Gateway, DynamoDB).", "Implementação de integradores para conectar sistemas de análise e laboratoriais, otimizando os fluxos de dados.", "Manutenção e desenvolvimento de ferramentas e sistemas de orquestração em bioinformática com Python e CDK."] },
-      { role: "Estagiário de Desenvolvimento de Sistemas", company: "CI&T", period: "Fev 2022 - Mar 2023", achievements: ["Desenvolvi componentes de UI responsivos para a plataforma 'BEES SOCIAL MEDIA' com React.js.", "Colaborei em uma arquitetura baseada em microsserviços usando Java e MongoDB.", "Participei ativamente de reuniões diárias e sessões de planejamento com times internacionais, utilizando o inglês como principal idioma de comunicação."] },
-      { role: "Estagiário de Desenvolvimento de Sistemas", company: "Robert Bosch Ltda", period: "Nov 2021 - Fev 2022", achievements: ["Implementei e mantive funcionalidades de front-end para uma plataforma de e-commerce B2B usando AngularJS e React.", "Colaborei com equipes multiculturais em projetos web, conduzindo toda a comunicação técnica em inglês."] },
+      { role: "Desenvolvedor Full Stack (ZerObito / Governo de SP)", company: "Universidade Estadual de Campinas (UNICAMP)", period: "Maio 2023 - Dez 2023", achievements: ["Atuação no projeto em parceria com o Governo do Estado de São Paulo para desenvolvimento da plataforma ZerObito, visando à diminuição de fatalidades no ambiente de trabalho.", "Desenvolvimento front-end em ReactJS e back-end integrado em Node.js.", "Manipulação e modelagem de banco de dados relacional MySQL.", "Aplicação rigorosa de princípios de UX Design para usabilidade e conscientização."] },
+      { role: "Analista de Sistemas (Estágio)", company: "CI&T", period: "Fev 2022 - Fev 2023", achievements: ["Desenvolvimento de produto interno em HTML5, SCSS e Angular.", "Desenvolvimento e implementação de componentes responsivos para a plataforma 'BEES SOCIAL MEDIA' com React.js.", "Atuação com Java e microsserviços, aplicando práticas de Clean Code.", "Manipulação de bancos de dados MongoDB, Firebase, Oracle e MySQL."] },
+      { role: "Analista de Sistemas (Estágio)", company: "Robert Bosch Ltda", period: "Nov 2021 - Jan 2022", achievements: ["Implementação e suporte de projetos Web para plataforma de e-commerce B2B usando AngularJS e Java.", "Colaboração com equipes multiculturais, conduzindo comunicação técnica em inglês."] },
+      { role: "Aprendiz de Desenvolvimento de Sistemas", company: "Robert Bosch Ltda", period: "Mar 2021 - Nov 2021", achievements: ["Desenvolvimento de projetos em VBA e Python com foco na automação de processos administrativos.", "Criação de bots RPA na plataforma Automation Anywhere.", "Suporte e criação de projetos em React.JS e Django, além de manipulação de bancos de dados MySQL, MongoDB, Firebase e Oracle."] },
       { role: "Gerente de Projetos (Programa de Empreendedorismo)", company: "Dell Technologies", period: "Mar 2019 - Dez 2019", achievements: ["Liderei o desenvolvimento de uma startup do conceito ao MVP como parte de um programa de empreendedorismo de um ano durante o ensino médio.", "Apresentei o pitch final do produto para investidores reais e gerentes da Dell, recebendo feedback positivo sobre a viabilidade de mercado."] }
     ],
     english_cert_link: "https://cert.efset.org/d6Pcpi",
@@ -353,6 +368,17 @@ const content = {
         challenge: "A empresa de climatização precisava modernizar sua presença digital, organizar a esteira de atendimento de clientes e eliminar processos manuais e demorados de elaboração de orçamentos técnicos e agendamento de visitas.",
         solution: "Construí uma aplicação web responsiva e sistema administrativo completo utilizando React 19, Tailwind CSS e Firebase Firestore. Desenvolvi um gerador automatizado de orçamentos em PDF pronto para envio ao cliente e integração com Google Calendar para sincronizar visitas técnicas diretamente na agenda da equipe.",
         features: ["Emissão Automatizada de Orçamentos em PDF", "Sincronização de Visitas com Google Calendar", "Gestão de Clientes e Serviços (CRM)", "Autenticação Segura via Firebase", "Interface Responsiva Mobile-First"]
+      },
+      { 
+        id: "zerobito", 
+        name: "ZerObito (Unicamp & Governo de SP)", 
+        url: "", 
+        description: "Plataforma desenvolvida em parceria entre a Unicamp e o Governo do Estado de São Paulo voltada à conscientização e redução de fatalidades no ambiente de trabalho.", 
+        topics: ["React", "Node.js", "MySQL", "UX Design", "Impacto Social"], 
+        imageUrl: null,
+        challenge: "Criar uma plataforma institucional e analítica para conscientização e prevenção de acidentes ocupacionais, com o objetivo de mitigar fatalidades em ambientes de trabalho no Estado de São Paulo.",
+        solution: "Desenvolvi a interface front-end em ReactJS com foco em acessibilidade e princípios de UX Design, integrada a serviços back-end em Node.js e banco de dados relacional MySQL.",
+        features: ["Interface Front-End em React", "Back-End & APIs em Node.js", "Modelagem de Dados em MySQL", "Design Focado em UX e Acessibilidade"]
       },
       { 
         id: "draft-selecoes", 
