@@ -17,10 +17,10 @@ const Projects = () => {
       return topicsLower.some(topic => ['react', 'next.js', 'vite', 'ui/ux', 'tailwind css'].includes(topic));
     }
     if (activeFilter === 'data') {
-      return topicsLower.some(topic => ['ai agent', 'finance', 'firebase'].includes(topic)) || p.id === 'finview' || p.id === 'autohub';
+      return topicsLower.some(topic => ['ai agent', 'finance', 'firebase', 'python', 'fastapi', 'google gemini'].includes(topic)) || p.id === 'finview' || p.id === 'autohub' || p.id === 'coinview';
     }
     if (activeFilter === 'fullstack') {
-      return topicsLower.some(topic => ['django', 'firebase', 'ai agent'].includes(topic));
+      return topicsLower.some(topic => ['django', 'firebase', 'ai agent', 'fastapi'].includes(topic)) || p.id === 'coinview' || p.id === 'jhs-climatizar';
     }
     return true;
   });

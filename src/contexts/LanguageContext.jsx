@@ -8,6 +8,8 @@ import adrianaImg from '../assets/img/site_adriana.png';
 import finviewImg from '../assets/img/finview.png';
 import worldCupGameImg from '../assets/img/world_cup_game.png';
 import autohubImg from '../assets/img/autohub.png';
+import coinviewImg from '../assets/img/CoinView.png';
+import jhsClimatizarImg from '../assets/img/JHSClimatizar.png';
 
 const LanguageContext = createContext();
 
@@ -117,6 +119,28 @@ const content = {
     academic_title: "Academic Background",
     projects_title: "Featured Projects",
     projects: [
+      { 
+        id: "coinview", 
+        name: "CoinView AI 360", 
+        url: "https://coinview-web.vercel.app", 
+        description: "Cryptocurrency quantitative intelligence & portfolio analytics platform powered by AI (Google Gemini), Binance API, and Modern Portfolio Theory (MPT) risk metrics.", 
+        topics: ["React", "FastAPI", "Python", "Google Gemini", "Tailwind CSS", "Firebase"], 
+        imageUrl: coinviewImg,
+        challenge: "Cryptocurrency investors struggle to consolidate multi-wallet assets, track real-time profitability, and access quantitative risk metrics or technical insights without juggling fragmented, complex tools.",
+        solution: "Engineered a full-stack platform pairing a high-performance React 18 frontend with a Python FastAPI quantitative engine. Integrated real-time Binance data streams, Modern Portfolio Theory (MPT) risk modeling, and Google Gemini AI to analyze orders and deliver automated Take-Profit and DCA recommendations.",
+        features: ["AI Oracle (Trade & DCA Advisor)", "MPT Quantitative Risk Engine", "Binance Real-Time Data Sync", "Macroeconomic Market Indicators", "Interactive Risk & Allocation Visualizations"]
+      },
+      { 
+        id: "jhs-climatizar", 
+        name: "JHS Climatizar", 
+        url: "https://jhs-climatizar.vercel.app", 
+        description: "Full-stack institutional web platform and operations CRM/ERP for an HVAC & air-conditioning company, featuring automated quote PDF generation and Google Calendar integration.", 
+        topics: ["React", "Firebase", "Tailwind CSS", "Google Calendar API", "PDF Generation"], 
+        imageUrl: jhsClimatizarImg,
+        challenge: "An HVAC service provider needed a strong digital presence to generate leads, organize customer workflows, and eliminate manual, error-prone quote generation and technician appointment scheduling.",
+        solution: "Built a modern, responsive web application and administrative management system using React 19, Tailwind CSS, and Firebase Firestore. Implemented direct PDF budget generation and automated synchronization with Google Calendar for field technician appointments.",
+        features: ["Automated Quote PDF Generation", "Google Calendar Appointment Sync", "Client & Service Management CRM", "Secure Firebase Authentication", "Responsive Mobile-First Interface"]
+      },
       { 
         id: "draft-selecoes", 
         name: "World Cup Game", 
@@ -308,6 +332,28 @@ const content = {
     academic_title: "Formação Acadêmica",
     projects_title: "Projetos em Destaque",
     projects: [
+      { 
+        id: "coinview", 
+        name: "CoinView AI 360", 
+        url: "https://coinview-web.vercel.app", 
+        description: "Plataforma de inteligência quantitativa e análise de portfólio cripto com Inteligência Artificial (Google Gemini), API da Binance e métricas de risco MPT.", 
+        topics: ["React", "FastAPI", "Python", "Google Gemini", "Tailwind CSS", "Firebase"], 
+        imageUrl: coinviewImg,
+        challenge: "Investidores de criptoativos enfrentam dificuldade para consolidar carteiras, monitorar rentabilidade em tempo real e obter análises de risco e recomendações técnicas sem recorrer a múltiplas ferramentas complexas.",
+        solution: "Desenvolvi uma plataforma financeira completa integrando um front-end moderno em React 18 a um motor de backend analítico em Python com FastAPI. O sistema conecta-se à API da Binance, calcula risco via Teoria Moderna do Portfólio (MPT) e utiliza IA generativa (Google Gemini) para avaliar ordens e sugerir estratégias de DCA e realização de lucros.",
+        features: ["Oráculo de IA (Recomendações de Trade & DCA)", "Motor de Risco Quantitativo (MPT)", "Sincronização em Tempo Real com Binance", "Painel Macroeconômico (Fear & Greed, S&P 500)", "Gráficos Avançados (Radar de Risco & Alocação)"]
+      },
+      { 
+        id: "jhs-climatizar", 
+        name: "JHS Climatizar", 
+        url: "https://jhs-climatizar.vercel.app", 
+        description: "Plataforma web institucional e sistema de gestão operacional (CRM/ERP) para empresa de climatização e ar-condicionado, com emissão de orçamentos em PDF e integração com Google Calendar.", 
+        topics: ["React", "Firebase", "Tailwind CSS", "Google Calendar API", "Geração de PDF"], 
+        imageUrl: jhsClimatizarImg,
+        challenge: "A empresa de climatização precisava modernizar sua presença digital, organizar a esteira de atendimento de clientes e eliminar processos manuais e demorados de elaboração de orçamentos técnicos e agendamento de visitas.",
+        solution: "Construí uma aplicação web responsiva e sistema administrativo completo utilizando React 19, Tailwind CSS e Firebase Firestore. Desenvolvi um gerador automatizado de orçamentos em PDF pronto para envio ao cliente e integração com Google Calendar para sincronizar visitas técnicas diretamente na agenda da equipe.",
+        features: ["Emissão Automatizada de Orçamentos em PDF", "Sincronização de Visitas com Google Calendar", "Gestão de Clientes e Serviços (CRM)", "Autenticação Segura via Firebase", "Interface Responsiva Mobile-First"]
+      },
       { 
         id: "draft-selecoes", 
         name: "World Cup Game", 
