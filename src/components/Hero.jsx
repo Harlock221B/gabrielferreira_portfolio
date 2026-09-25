@@ -42,7 +42,7 @@ const Hero = () => {
   }, [displayText, isDeleting, roleIndex, roles]);
 
   return (
-    <section id="home" className="relative min-h-screen pt-28 pb-16 md:py-36 flex items-center overflow-hidden bg-slate-50 dark:bg-[#070b14] transition-colors duration-500 scroll-mt-28">
+    <section id="home" className="relative min-h-screen pt-24 sm:pt-28 pb-12 sm:pb-16 md:py-36 flex items-center overflow-hidden bg-slate-50 dark:bg-[#070b14] transition-colors duration-500 scroll-mt-28">
       
       {/* Background Systematic Grids and Beams */}
       <div className="absolute inset-0 bg-grid-pattern opacity-60 dark:opacity-20 pointer-events-none" />
@@ -61,11 +61,11 @@ const Hero = () => {
       <div className="hidden lg:block absolute top-28 left-8 font-mono text-xs text-slate-300 dark:text-slate-800 select-none">+ SYS.LAT_23.5505_LNG_46.6333</div>
       <div className="hidden lg:block absolute top-28 right-8 font-mono text-xs text-slate-300 dark:text-slate-800 select-none">+ NODE_PORTFOLIO_V2.5</div>
 
-      <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
+      <div className="container mx-auto max-w-6xl px-3.5 sm:px-6 relative z-10">
         
         {/* Top Telemetry HUD */}
         <AnimatedComponent>
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-8">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-2.5 mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
               <span className="text-emerald-600 dark:text-emerald-400 font-semibold">ONLINE</span>
@@ -107,70 +107,70 @@ const Hero = () => {
             </AnimatedComponent>
 
             <AnimatedComponent delay={100}>
-              <h1 className="text-4xl sm:text-6xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.08] mt-2">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.12] mt-2">
                 {t.hero_title_prefix} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500">
                   {t.hero_title_suffix}
                 </span>
               </h1>
               
-              <h2 className="text-lg sm:text-2xl font-bold text-slate-700 dark:text-slate-200 mt-4 tracking-tight">
+              <h2 className="text-base sm:text-xl lg:text-2xl font-bold text-slate-700 dark:text-slate-200 mt-3 sm:mt-4 tracking-tight">
                 {t.hero_subtitle}
               </h2>
             </AnimatedComponent>
 
-            {/* Dynamic Typewriter Command */}
+            {/* Dynamic Typewriter Command (min-h prevents layout shift on mobile wrap) */}
             <AnimatedComponent delay={150}>
-              <div className="mt-3 min-h-[34px] flex items-center justify-center lg:justify-start">
-                <div className="font-mono text-sm sm:text-base font-semibold text-cyan-600 dark:text-cyan-400 flex items-center">
-                  <span className="text-cyan-500 mr-2 font-bold">&gt;</span>
+              <div className="mt-3 min-h-[46px] sm:min-h-[36px] flex items-center justify-center lg:justify-start">
+                <div className="font-mono text-xs sm:text-sm md:text-base font-semibold text-cyan-600 dark:text-cyan-400 flex items-center text-center lg:text-left">
+                  <span className="text-cyan-500 mr-2 font-bold shrink-0">&gt;</span>
                   <span>{displayText}</span>
-                  <span className="inline-block w-2.5 h-4 bg-cyan-500 ml-1.5 animate-pulse"></span>
+                  <span className="inline-block w-2 sm:w-2.5 h-4 bg-cyan-500 ml-1.5 animate-pulse shrink-0"></span>
                 </div>
               </div>
             </AnimatedComponent>
 
             {/* Description */}
             <AnimatedComponent delay={200}>
-              <p className="mt-5 text-base sm:text-lg text-slate-600 dark:text-slate-300/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 {t.hero_description}
               </p>
             </AnimatedComponent>
 
             {/* Systematic Stats Badges */}
             <AnimatedComponent delay={250}>
-              <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl mx-auto lg:mx-0">
-                <div className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
-                  <div className="text-xl font-black text-cyan-500 font-mono">5+</div>
-                  <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_experience}</div>
+              <div className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 max-w-xl mx-auto lg:mx-0">
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
+                  <div className="text-lg sm:text-xl font-black text-cyan-500 font-mono">5+</div>
+                  <div className="text-[10px] sm:text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_experience}</div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
-                  <div className="text-xl font-black text-blue-500 font-mono">AWS</div>
-                  <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_aws}</div>
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
+                  <div className="text-lg sm:text-xl font-black text-blue-500 font-mono">AWS</div>
+                  <div className="text-[10px] sm:text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_aws}</div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
-                  <div className="text-xl font-black text-indigo-500 font-mono">C1</div>
-                  <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_english}</div>
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
+                  <div className="text-lg sm:text-xl font-black text-indigo-500 font-mono">C1</div>
+                  <div className="text-[10px] sm:text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_english}</div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
-                  <div className="text-xl font-black text-emerald-500 font-mono">7+</div>
-                  <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_projects}</div>
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm text-center lg:text-left">
+                  <div className="text-lg sm:text-xl font-black text-emerald-500 font-mono">9+</div>
+                  <div className="text-[10px] sm:text-[11px] font-mono text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.stats_projects}</div>
                 </div>
               </div>
             </AnimatedComponent>
 
             {/* CTAs & Socials with Protected Dock Layout */}
             <AnimatedComponent delay={300}>
-              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
+              <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
                 
                 {/* Primary Action Buttons */}
-                <div className="flex items-center gap-3">
+                <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
                   <a 
                     href="#projects" 
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-mono font-bold text-xs sm:text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 active:scale-95 transition-all"
+                    className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-6 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-mono font-bold text-xs sm:text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 active:scale-95 transition-all text-center"
                   >
                     <span>{t.hero_explore_btn}</span>
                     <ArrowRight size={16} />
@@ -179,7 +179,7 @@ const Hero = () => {
                   <a 
                     href={cvFile} 
                     download
-                    className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-mono font-bold text-xs sm:text-sm hover:border-cyan-500 dark:hover:border-cyan-500 hover:-translate-y-0.5 active:scale-95 transition-all shadow-sm"
+                    className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-5 py-3 sm:py-3.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-mono font-bold text-xs sm:text-sm hover:border-cyan-500 dark:hover:border-cyan-500 hover:-translate-y-0.5 active:scale-95 transition-all shadow-sm text-center"
                   >
                     <FileText size={16} className="text-cyan-500" />
                     <span>{cvText}</span>
@@ -187,7 +187,7 @@ const Hero = () => {
                 </div>
 
                 {/* Social Dock (Consolidated so LinkedIn NEVER gets orphaned!) */}
-                <div className="flex items-center gap-1 p-1 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm shrink-0">
+                <div className="flex items-center justify-center gap-1 p-1 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm shrink-0">
                   <a 
                     href="mailto:gabrielferreira47b@gmail.com"
                     className="p-2.5 rounded-full text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
@@ -263,7 +263,7 @@ const Hero = () => {
                 </div>
 
                 {/* Code Window Body */}
-                <div className="p-5 text-xs text-slate-300 leading-relaxed overflow-x-auto min-h-[300px] flex flex-col justify-between">
+                <div className="p-4 sm:p-5 text-[11px] sm:text-xs text-slate-300 leading-relaxed overflow-x-auto min-h-[260px] sm:min-h-[300px] flex flex-col justify-between">
                   {activeTab === 'data' ? (
                     <div>
                       <div className="text-slate-500 mb-2">{t.terminal_pipeline_comment}</div>
@@ -304,7 +304,8 @@ const Hero = () => {
                       <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
                       <span>{t.terminal_execution}</span>
                     </div>
-                    <span className="text-slate-500">UTF-8 // LF // React 19 + Python 3.12</span>
+                    <span className="hidden sm:inline text-slate-500">UTF-8 // LF // React 19 + Python 3.12</span>
+                    <span className="sm:hidden text-slate-500">React + Python</span>
                   </div>
                 </div>
 

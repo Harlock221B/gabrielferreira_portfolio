@@ -162,74 +162,92 @@ const Header = () => {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+            className="md:hidden w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-700 dark:text-slate-200 active:scale-90 transition-transform"
             aria-label="Menu"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? <X size={18} className="text-cyan-500" /> : <Menu size={18} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu Backdrop & Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 container mx-auto max-w-6xl rounded-2xl bg-white/95 dark:bg-[#070b14]/95 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800/80 p-5 shadow-2xl flex flex-col gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-            <div className="flex items-center gap-2 text-xs font-mono text-emerald-500">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>{language === 'pt' ? 'STATUS DO SISTEMA: ONLINE' : 'SYS STATUS: ONLINE'}</span>
-            </div>
-            <a 
-              href={cvFile} 
-              download
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-600 text-white text-xs font-mono font-bold"
-            >
-              <FileText size={12} />
-              {cvText}
-            </a>
-          </div>
+        <>
+          {/* Backdrop Overlay */}
+          <div 
+            onClick={() => setMobileMenuOpen(false)}
+            className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-40 md:hidden animate-in fade-in duration-200"
+          />
 
-          <nav className="flex flex-col gap-3">
-            {t.nav_links.map((link) => (
+          {/* Drawer Menu */}
+          <div className="relative z-50 md:hidden mt-2 container mx-auto max-w-6xl rounded-3xl bg-white/95 dark:bg-[#070b14]/95 backdrop-blur-2xl border border-slate-200 dark:border-cyan-500/20 p-5 sm:p-6 shadow-2xl shadow-cyan-950/40 flex flex-col gap-5 animate-in fade-in slide-in-from-top-3 duration-200">
+            
+            {/* Top Telemetry & CV Action */}
+            <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-slate-800/80">
+              <div className="flex items-center gap-2 text-xs font-mono text-emerald-500">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span className="font-semibold">{language === 'pt' ? 'SYS: ONLINE' : 'SYS: ONLINE'}</span>
+              </div>
+              
               <a 
-                key={link.text} 
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-mono font-medium text-slate-700 dark:text-slate-300 hover:text-cyan-500 dark:hover:text-cyan-400 py-1.5 flex items-center justify-between cursor-pointer"
+                href={cvFile} 
+                download
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-mono font-bold shadow-md shadow-cyan-500/20 active:scale-95 transition-all"
               >
-                <span>{link.text}</span>
-                <span className="text-xs text-slate-400 font-mono">&rarr;</span>
+                <FileText size={13} />
+                <span>{cvText}</span>
               </a>
-            ))}
-          </nav>
+            </div>
 
-          <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-around">
-            <a 
-              href="https://github.com/Harlock221B" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex items-center gap-1.5 text-xs font-mono text-slate-600 dark:text-slate-400 hover:text-cyan-500"
-            >
-              <GithubIcon c="w-4 h-4" />
-              GitHub
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/gabriel-ferreira-souza/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex items-center gap-1.5 text-xs font-mono text-slate-600 dark:text-slate-400 hover:text-cyan-500"
-            >
-              <LinkedinIcon c="w-4 h-4" />
-              LinkedIn
-            </a>
-            <a 
-              href="mailto:gabrielferreira47b@gmail.com" 
-              className="flex items-center gap-1.5 text-xs font-mono text-slate-600 dark:text-slate-400 hover:text-cyan-500"
-            >
-              <MailIcon c="w-4 h-4" />
-              Email
-            </a>
+            {/* Navigation Links */}
+            <nav className="flex flex-col gap-1.5">
+              {t.nav_links.map((link, idx) => (
+                <a 
+                  key={link.text} 
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-sm font-mono font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-500 dark:hover:text-cyan-400 active:bg-cyan-500/10 dark:active:bg-cyan-500/15 py-3 px-3.5 rounded-2xl flex items-center justify-between cursor-pointer transition-colors group"
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="text-xs text-cyan-500 font-mono font-bold opacity-60 group-hover:opacity-100">0{idx + 1} //</span>
+                    <span className="font-sans font-semibold text-base">{link.text}</span>
+                  </span>
+                  <span className="text-xs text-cyan-500 font-mono transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+              ))}
+            </nav>
+
+            {/* Social Dock in Mobile Menu */}
+            <div className="pt-3.5 border-t border-slate-100 dark:border-slate-800/80 grid grid-cols-3 gap-2">
+              <a 
+                href="https://github.com/Harlock221B" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-500/50 active:scale-95 transition-all"
+              >
+                <GithubIcon c="w-4 h-4" />
+                <span>GitHub</span>
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/gabriel-ferreira-souza/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-500/50 active:scale-95 transition-all"
+              >
+                <LinkedinIcon c="w-4 h-4" />
+                <span>LinkedIn</span>
+              </a>
+              <a 
+                href="mailto:gabrielferreira47b@gmail.com" 
+                className="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300 hover:text-cyan-500 hover:border-cyan-500/50 active:scale-95 transition-all"
+              >
+                <MailIcon c="w-4 h-4" />
+                <span>Email</span>
+              </a>
+            </div>
+
           </div>
-        </div>
+        </>
       )}
     </header>
   );

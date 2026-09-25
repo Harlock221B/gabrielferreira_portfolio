@@ -7,38 +7,38 @@ const Career = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="experience" className="py-24 relative bg-white dark:bg-[#070b14] transition-colors duration-500 overflow-hidden border-t border-slate-200/50 dark:border-slate-900 scroll-mt-28">
+    <section id="experience" className="py-16 sm:py-24 relative bg-white dark:bg-[#070b14] transition-colors duration-500 overflow-hidden border-t border-slate-200/50 dark:border-slate-900 scroll-mt-28">
       
       {/* Background Systematic Grids */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30 dark:opacity-10 pointer-events-none" />
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-600/5 dark:bg-cyan-500/10 blur-[130px] rounded-full pointer-events-none"></div>
 
-      <div className="container mx-auto max-w-5xl px-4 sm:px-6 relative z-10">
+      <div className="container mx-auto max-w-5xl px-3.5 sm:px-6 relative z-10">
         
         {/* Section Header */}
         <AnimatedComponent>
-          <div className="flex flex-col items-center mb-20 text-center">
+          <div className="flex flex-col items-center mb-12 sm:mb-20 text-center">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono font-semibold text-cyan-600 dark:text-cyan-400 mb-3">
               <Terminal size={12} />
               <span>{t.career_badge}</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
               {t.experience_title}
             </h2>
-            <div className="w-16 h-1 mt-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full"></div>
+            <div className="w-16 h-1 mt-3 sm:mt-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full"></div>
             
-            <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl">
+            <p className="mt-3 sm:mt-4 text-xs sm:text-base text-slate-600 dark:text-slate-400 max-w-xl px-2">
               {t.career_subtitle}
             </p>
           </div>
         </AnimatedComponent>
 
         {/* Dynamic Timeline */}
-        <div className="relative space-y-12 sm:space-y-16">
+        <div className="relative space-y-8 sm:space-y-16">
           
           {/* Central Conduit Line */}
-          <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-7 sm:top-8 bottom-8 w-[2px] bg-slate-200 dark:bg-slate-800">
+          <div className="absolute left-3.5 sm:left-6 md:left-1/2 -translate-x-1/2 top-6 sm:top-8 bottom-6 w-[2px] bg-slate-200 dark:bg-slate-800">
             <div className="w-full h-full bg-gradient-to-b from-cyan-500 via-blue-500/40 to-slate-200 dark:to-slate-800 shadow-[0_0_10px_rgba(6,182,212,0.35)]"></div>
           </div>
 
@@ -54,30 +54,30 @@ const Career = () => {
                   <div className="hidden md:block w-1/2"></div>
 
                   {/* Central Node */}
-                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-7 sm:top-8 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white dark:bg-[#070b14] border-2 border-slate-300 dark:border-slate-700 group-hover:border-cyan-500 dark:group-hover:border-cyan-400 flex items-center justify-center transition-all duration-300 shadow-md z-10">
+                  <div className="absolute left-3.5 sm:left-6 md:left-1/2 -translate-x-1/2 top-5 sm:top-8 w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-white dark:bg-[#070b14] border-2 border-slate-300 dark:border-slate-700 group-hover:border-cyan-500 dark:group-hover:border-cyan-400 flex items-center justify-center transition-all duration-300 shadow-md z-10">
                     {isCurrent ? (
                       <div className="relative flex items-center justify-center">
-                        <span className="w-4 h-4 rounded-full bg-cyan-500 animate-ping opacity-75"></span>
-                        <span className="absolute w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_8px_#06b6d4]"></span>
+                        <span className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-cyan-500 animate-ping opacity-75"></span>
+                        <span className="absolute w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-cyan-500 shadow-[0_0_8px_#06b6d4]"></span>
                       </div>
                     ) : (
-                      <div className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-600 group-hover:bg-cyan-400 group-hover:shadow-[0_0_8px_rgba(6,182,212,0.8)] transition-all"></div>
+                      <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-slate-400 dark:bg-slate-600 group-hover:bg-cyan-400 group-hover:shadow-[0_0_8px_rgba(6,182,212,0.8)] transition-all"></div>
                     )}
                   </div>
 
                   {/* Content Card */}
-                  <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
-                    <div className="relative p-6 sm:p-8 rounded-3xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800/80 hover:border-cyan-500/50 dark:hover:border-cyan-500/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-1">
+                  <div className={`w-full md:w-1/2 pl-8 sm:pl-12 md:pl-0 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
+                    <div className="relative p-4 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800/80 hover:border-cyan-500/50 dark:hover:border-cyan-500/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-1">
                       
                       {/* Top Meta Bar */}
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-300 text-xs font-mono font-bold">
-                          <Calendar size={12} className="text-cyan-500" />
+                      <div className="flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-slate-100 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-300 text-[11px] sm:text-xs font-mono font-bold">
+                          <Calendar size={11} className="text-cyan-500 shrink-0" />
                           <span>{exp.period}</span>
                         </div>
 
                         {isCurrent && (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[9px] sm:text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                             {t.career_current_badge}
                           </span>
@@ -85,20 +85,20 @@ const Career = () => {
                       </div>
 
                       {/* Role & Company */}
-                      <h3 className="text-xl sm:text-2xl font-bold dark:text-white text-slate-900 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                      <h3 className="text-base sm:text-xl md:text-2xl font-bold dark:text-white text-slate-900 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors leading-snug">
                         {exp.role}
                       </h3>
                       
-                      <div className="flex items-center gap-1.5 text-sm font-semibold text-slate-500 dark:text-slate-400 mt-1 mb-5">
-                        <Building2 size={15} className="text-cyan-500" />
+                      <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400 mt-1 mb-3.5 sm:mb-5">
+                        <Building2 size={13} className="text-cyan-500 shrink-0" />
                         <span>{exp.company}</span>
                       </div>
 
                       {/* Achievements List */}
-                      <ul className="space-y-2.5">
+                      <ul className="space-y-2 sm:space-y-2.5">
                         {exp.achievements.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2.5 text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
-                            <span className="text-cyan-500 font-mono mt-0.5 shrink-0">▸</span>
+                          <li key={i} className="flex items-start gap-2 text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                            <span className="text-cyan-500 font-mono text-[11px] sm:text-xs mt-0.5 shrink-0">▸</span>
                             <span>{item}</span>
                           </li>
                         ))}

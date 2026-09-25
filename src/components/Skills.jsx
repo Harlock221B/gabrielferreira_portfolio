@@ -37,7 +37,7 @@ const SkillCard = ({ category, index, t }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative p-[1px] rounded-3xl overflow-hidden bg-slate-200/80 dark:bg-slate-800/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10"
+      className="relative p-[1px] rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-200/80 dark:bg-slate-800/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10"
     >
       {/* Dynamic Cursor Spotlight Beam */}
       {isHovered && (
@@ -55,31 +55,31 @@ const SkillCard = ({ category, index, t }) => {
         />
       )}
 
-      <div className="relative h-full bg-white dark:bg-[#0b1120] rounded-3xl p-6 sm:p-8 z-10 flex flex-col justify-between">
+      <div className="relative h-full bg-white dark:bg-[#0b1120] rounded-2xl sm:rounded-3xl p-4 sm:p-8 z-10 flex flex-col justify-between">
         <div>
           {/* Card Category Header */}
-          <div className="flex items-center justify-between pb-5 mb-6 border-b border-slate-100 dark:border-slate-800/80">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800/80 flex items-center justify-center text-cyan-600 dark:text-cyan-400 border border-slate-200/60 dark:border-slate-700/60">
-                <IconComponent size={20} />
+          <div className="flex items-center justify-between pb-3.5 mb-4 sm:pb-5 sm:mb-6 border-b border-slate-100 dark:border-slate-800/80">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-800/80 flex items-center justify-center text-cyan-600 dark:text-cyan-400 border border-slate-200/60 dark:border-slate-700/60 shrink-0">
+                <IconComponent size={18} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+              <h3 className="text-base sm:text-xl font-bold text-slate-900 dark:text-white leading-tight">
                 {category.name}
               </h3>
             </div>
-            <span className="text-xs font-mono text-slate-400 dark:text-slate-600">
+            <span className="text-[11px] sm:text-xs font-mono text-slate-400 dark:text-slate-600 shrink-0">
               [CAT_0{index + 1}]
             </span>
           </div>
 
           {/* Skills Chips */}
-          <div className="flex flex-wrap gap-2.5">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2.5">
             {category.skills.map(skill => (
               <span 
                 key={skill} 
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-800 hover:border-cyan-500 dark:hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200 cursor-default"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-mono font-medium bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-800 hover:border-cyan-500 dark:hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200 cursor-default"
               >
-                <span className={`w-1.5 h-1.5 rounded-full ${theme.dot}`}></span>
+                <span className={`w-1.5 h-1.5 rounded-full ${theme.dot} shrink-0`}></span>
                 <span>{skill}</span>
               </span>
             ))}
@@ -87,7 +87,7 @@ const SkillCard = ({ category, index, t }) => {
         </div>
 
         {/* Telemetry Footer */}
-        <div className="mt-8 pt-4 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[11px] font-mono text-slate-400">
+        <div className="mt-6 sm:mt-8 pt-3 sm:pt-4 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-slate-400">
           <span>{t.skills_validated}</span>
           <span className="text-emerald-500 font-semibold">{t.skills_prod_ready}</span>
         </div>
@@ -100,29 +100,29 @@ const Skills = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="skills" className="py-24 relative bg-slate-50/50 dark:bg-[#070b14]/50 border-t border-slate-200/50 dark:border-slate-900 transition-colors duration-500 scroll-mt-28">
+    <section id="skills" className="py-16 sm:py-24 relative bg-slate-50/50 dark:bg-[#070b14]/50 border-t border-slate-200/50 dark:border-slate-900 transition-colors duration-500 scroll-mt-28">
       <div className="absolute inset-0 bg-dot-pattern opacity-40 dark:opacity-10 pointer-events-none" />
 
-      <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
+      <div className="container mx-auto max-w-6xl px-3.5 sm:px-6 relative z-10">
         <AnimatedComponent>
-          <div className="flex flex-col items-center mb-16 text-center">
+          <div className="flex flex-col items-center mb-10 sm:mb-16 text-center">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono font-semibold text-cyan-600 dark:text-cyan-400 mb-3">
               <Terminal size={12} />
               <span>{t.skills_badge}</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
               {t.skills_title}
             </h2>
-            <div className="w-16 h-1 mt-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full"></div>
+            <div className="w-16 h-1 mt-3 sm:mt-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full"></div>
             
-            <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl">
+            <p className="mt-3 sm:mt-4 text-xs sm:text-base text-slate-600 dark:text-slate-400 max-w-xl px-2">
               {t.skills_subtitle}
             </p>
           </div>
         </AnimatedComponent>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {t.skills_categories.map((category, index) => (
             <AnimatedComponent key={category.name} delay={index * 120}>
               <SkillCard category={category} index={index} t={t} />
