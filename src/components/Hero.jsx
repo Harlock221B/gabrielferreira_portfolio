@@ -230,68 +230,70 @@ const Hero = () => {
               <div className="rounded-2xl overflow-hidden bg-[#0d131f] border border-slate-800 shadow-2xl shadow-cyan-950/40 text-left font-mono">
                 
                 {/* Window Titlebar */}
-                <div className="px-4 py-3 bg-[#0a0e17] border-b border-slate-800 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-                    <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
-                    <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-                    <span className="text-xs text-slate-400 font-mono ml-2">sys://gabriel.terminal</span>
+                <div className="px-3 sm:px-4 py-2.5 sm:py-3 bg-[#0a0e17] border-b border-slate-800 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                    <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80 inline-block"></span>
+                    <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                    <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+                    <span className="hidden sm:inline text-xs text-slate-400 font-mono ml-1.5">sys://gabriel.terminal</span>
                   </div>
 
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 shrink-0">
                     <button
                       onClick={() => setActiveTab('data')}
-                      className={`px-2.5 py-1 text-[11px] rounded transition-colors ${
+                      className={`px-2.5 sm:px-3 py-1 text-[10px] sm:text-[11px] rounded transition-colors ${
                         activeTab === 'data' 
                           ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold' 
-                          : 'text-slate-500 hover:text-slate-300'
+                          : 'text-slate-400 hover:text-slate-200'
                       }`}
                     >
-                      Python/Data
+                      <span className="sm:hidden">Python</span>
+                      <span className="hidden sm:inline">Python/Data</span>
                     </button>
                     <button
                       onClick={() => setActiveTab('frontend')}
-                      className={`px-2.5 py-1 text-[11px] rounded transition-colors ${
+                      className={`px-2.5 sm:px-3 py-1 text-[10px] sm:text-[11px] rounded transition-colors ${
                         activeTab === 'frontend' 
                           ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold' 
-                          : 'text-slate-500 hover:text-slate-300'
+                          : 'text-slate-400 hover:text-slate-200'
                       }`}
                     >
-                      React/UI
+                      <span className="sm:hidden">React</span>
+                      <span className="hidden sm:inline">React/UI</span>
                     </button>
                   </div>
                 </div>
 
                 {/* Code Window Body */}
-                <div className="p-4 sm:p-5 text-[11px] sm:text-xs text-slate-300 leading-relaxed overflow-x-auto min-h-[260px] sm:min-h-[300px] flex flex-col justify-between">
+                <div className="p-3.5 sm:p-5 text-[11px] sm:text-xs text-slate-300 leading-relaxed overflow-x-auto min-h-[250px] sm:min-h-[300px] flex flex-col justify-between">
                   {activeTab === 'data' ? (
-                    <div>
-                      <div className="text-slate-500 mb-2">{t.terminal_pipeline_comment}</div>
+                    <div className="space-y-0.5 whitespace-nowrap font-mono">
+                      <div className="text-slate-500 mb-2 truncate">{t.terminal_pipeline_comment}</div>
                       <div className="text-pink-400">import <span className="text-slate-200">pandas</span> as <span className="text-yellow-300">pd</span></div>
-                      <div className="text-pink-400">import <span className="text-slate-200">boto3</span>, <span className="text-slate-200">plotly.express</span> as <span className="text-yellow-300">px</span></div>
-                      <br />
+                      <div className="text-pink-400">import <span className="text-slate-200">boto3</span>, <span className="text-slate-200">plotly</span> as <span className="text-yellow-300">px</span></div>
+                      <div className="h-1.5 sm:h-2"></div>
                       <div className="text-slate-400">@serverless_task(runtime=<span className="text-emerald-400">"AWS_Lambda"</span>)</div>
-                      <div><span className="text-blue-400 font-semibold">def</span> <span className="text-yellow-300">process_genomic_stream</span>(dataset_id):</div>
-                      <div className="pl-4 text-slate-300">df = pd.read_parquet(f<span className="text-emerald-400">"s3://einstein-data/{'{'}dataset_id{'}'}"</span>)</div>
-                      <div className="pl-4 text-slate-300">insights = df.pipe(nlp_clinical_analysis)</div>
+                      <div><span className="text-blue-400 font-semibold">def</span> <span className="text-yellow-300">process_genomics</span>(dataset_id):</div>
+                      <div className="pl-4 text-slate-300">df = pd.read_parquet(f<span className="text-emerald-400">"s3://einstein/{'{'}dataset_id{'}'}"</span>)</div>
+                      <div className="pl-4 text-slate-300">insights = df.pipe(clinical_nlp)</div>
                       <div className="pl-4 text-pink-400">return <span className="text-slate-300">{'{'}</span></div>
                       <div className="pl-8 text-cyan-300">"status": <span className="text-emerald-400">"SUCCESS"</span>,</div>
-                      <div className="pl-8 text-cyan-300">"records_processed": <span className="text-orange-400">1_420_800</span>,</div>
+                      <div className="pl-8 text-cyan-300">"records": <span className="text-orange-400">1_420_800</span>,</div>
                       <div className="pl-8 text-cyan-300">"accuracy": <span className="text-orange-400">0.994</span></div>
                       <div className="pl-4 text-slate-300">{'}'}</div>
                     </div>
                   ) : (
-                    <div>
-                      <div className="text-slate-500 mb-2">{t.terminal_ui_comment}</div>
+                    <div className="space-y-0.5 whitespace-nowrap font-mono">
+                      <div className="text-slate-500 mb-2 truncate">{t.terminal_ui_comment}</div>
                       <div className="text-pink-400">import <span className="text-slate-200">{'{'} useState, useEffect {'}'}</span> from <span className="text-emerald-400">'react'</span>;</div>
                       <div className="text-pink-400">import <span className="text-slate-200">{'{'} motion {'}'}</span> from <span className="text-emerald-400">'framer-motion'</span>;</div>
-                      <br />
-                      <div><span className="text-blue-400 font-semibold">export const</span> <span className="text-yellow-300">InteractiveTelemetry</span> = () =&gt; {'{'}</div>
-                      <div className="pl-4 text-slate-300">const [metrics, setMetrics] = useState(liveStream);</div>
+                      <div className="h-1.5 sm:h-2"></div>
+                      <div><span className="text-blue-400 font-semibold">export const</span> <span className="text-yellow-300">TelemetryView</span> = () =&gt; {'{'}</div>
+                      <div className="pl-4 text-slate-300">const [data, setData] = useState(liveStream);</div>
                       <div className="pl-4 text-pink-400">return (</div>
-                      <div className="pl-8 text-cyan-400">&lt;<span className="text-pink-400">div</span> <span className="text-purple-400">className</span>=<span className="text-emerald-400">"grid grid-cols-2 gap-4"</span>&gt;</div>
-                      <div className="pl-12 text-slate-300">&lt;<span className="text-blue-300">RealtimeDataCard</span> telemetry={'{'}metrics{'}'} /&gt;</div>
-                      <div className="pl-12 text-slate-300">&lt;<span className="text-blue-300">StreamlitBridge</span> active={'{'}true{'}'} /&gt;</div>
+                      <div className="pl-8 text-cyan-400">&lt;<span className="text-pink-400">div</span> <span className="text-purple-400">className</span>=<span className="text-emerald-400">"grid grid-cols-2 gap-2"</span>&gt;</div>
+                      <div className="pl-12 text-slate-300">&lt;<span className="text-blue-300">DataCard</span> telemetry={'{'}data{'}'} /&gt;</div>
+                      <div className="pl-12 text-slate-300">&lt;<span className="text-blue-300">Bridge</span> active={'{'}true{'}'} /&gt;</div>
                       <div className="pl-8 text-cyan-400">&lt;/<span className="text-pink-400">div</span>&gt;</div>
                       <div className="pl-4 text-pink-400">);</div>
                       <div>{'}'};</div>
@@ -299,9 +301,12 @@ const Hero = () => {
                   )}
 
                   {/* Micro Telemetry Bar inside code window */}
-                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[10px] sm:text-[11px] text-slate-400 font-mono">
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500 shadow-[0_0_6px_#06b6d4]"></span>
+                      </span>
                       <span>{t.terminal_execution}</span>
                     </div>
                     <span className="hidden sm:inline text-slate-500">UTF-8 // LF // React 19 + Python 3.12</span>
